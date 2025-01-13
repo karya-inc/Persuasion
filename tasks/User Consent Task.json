@@ -1,0 +1,138 @@
+{
+  "name": "User Consent Task",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consent_question"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "consent_question": {
+      "key": "consent_question",
+      "name": "consent_question",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consent_agree_mcq"
+      },
+      "text": {
+        "key": "consent_question",
+        "src": "MT_INPUT",
+        "type": "STRING"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "consent_question"
+    },
+    "consent_agree_mcq": {
+      "key": "consent_agree_mcq",
+      "name": "consent_agree_mcq",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "BOOLEAN",
+      "selected": {
+        "key": "consent_agree",
+        "type": "BOOLEAN"
+      },
+      "true_label": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हाँ"
+      },
+      "description": "consent_agree_mcq",
+      "false_label": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "नहीं"
+      }
+    }
+  },
+  "tags": [
+    "persuasion",
+    "consent-task"
+  ],
+  "files": {},
+  "taskType": "MANUAL",
+  "allowEdit": false,
+  "introSpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consent_text"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "consent_text": {
+      "key": "consent_text",
+      "name": "consent_text",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "<h1>मुख्य जानकारी</h1>      <h2>1. मुझे शोध अध्ययन में भाग लेने के लिए क्यों आमंत्रित किया जा रहा है?</h2>     <p>हम आपको एक शोध अध्ययन में भाग लेने के लिए आमंत्रित कर रहे हैं क्योंकि हम Karya के माध्यम से एकत्र किए गए डेटा की मदद से भारत में असमानता के प्रति प्राथमिकताओं और दृष्टिकोण का दस्तावेज़ीकरण करना चाहते हैं।</p>      <h2>2. मुझे शोध अध्ययन के बारे में क्या पता होना चाहिए?</h2>     <ul>         <li>कोई आपको इस शोध अध्ययन के बारे में समझाएगा।</li>         <li>आप इसमें भाग लेंगे या नहीं, यह आप पर निर्भर है।</li>         <li>आपकी भागीदारी पूरी तरह से स्वैच्छिक है।</li>         <li>आप भाग न लेने का विकल्प चुन सकते हैं।</li>         <li>आप भाग लेने के लिए सहमत हो सकते हैं और बाद में अपना मन बदल सकते हैं।</li>         <li>आपके निर्णय का आप पर कोई प्रतिकूल प्रभाव नहीं पड़ेगा।</li>         <li>भाग लेने से इनकार करने से कोई बुरा परिणाम नहीं होगा या आपको मिलने वाले लाभों में कोई कमी नहीं आएगी।</li>         <li>आप निर्णय लेने से पहले अपने सभी प्रश्न पूछ सकते हैं।</li>     </ul>      <h2>3. यह शोध क्यों किया जा रहा है?</h2>     <p>इस अध्ययन का उद्देश्य असमानता के प्रति प्राथमिकताओं और दृष्टिकोणों का दस्तावेज़ीकरण करना और भारतीय संदर्भ में सामाजिक गतिशीलता को बेहतर ढंग से समझना है।</p>      <h2>4. यह शोध कितने समय तक चलेगा और मुझे क्या करना होगा?</h2>     <ul>         <li>यदि आप इस अध्ययन का हिस्सा बनने के लिए सहमत हैं, तो आपको लगभग छह सप्ताह के अंतराल पर सर्वेक्षण के दो सेट पूरे करने होंगे।</li>         <li>सर्वेक्षण के प्रत्येक सेट में एक प्रश्नावली होती है, जिसमें प्रत्येक में लगभग 30-45 मिनट का समय लगेगा।</li>         <li>पहला सर्वेक्षण आज होगा।</li>         <li>अगले महीने Karya ऐप पर सामान्य कार्य सौंपे जाएंगे।</li>         <li>लगभग छह सप्ताह के बाद, हम दूसरा सर्वेक्षण पूरा करने के लिए कहेंगे।</li>         <li>किसी भी समय आप इस अध्ययन से बाहर निकल सकते हैं।</li>     </ul>      <h2>5. क्या इस अध्ययन में शामिल होना मेरे लिए हानिकारक हो सकता है?</h2>     <p>इसमें भाग लेने से आपको कोई सीधा जोखिम नहीं है। यदि कोई प्रश्न असहज हो तो आप छोड़ सकते हैं। Karya को केवल आपकी भागीदारी का पता चलेगा, लेकिन इसका भविष्य के प्रोजेक्ट्स पर कोई असर नहीं पड़ेगा।</p>      <h2>6. क्या इस अध्ययन में शामिल होने से मुझे किसी तरह लाभ होगा?</h2>     <p>आपको अगले महीने में Karya प्लेटफॉर्म के माध्यम से पूरे किए गए कार्य के लिए 3600 रुपये का मुआवज़ा दिया जाएगा।</p>      <h2>7. यदि मैं इस शोध में शामिल नहीं होना चाहूँ तो क्या होगा?</h2>     <p>इस शोध में भागीदारी पूरी तरह से स्वैच्छिक है।</p>      <h2>8. यदि मैं अध्ययन बीच में ही छोड़ दूं तो क्या होगा?</h2>     <p>आप बिना किसी दंड के किसी भी समय भाग लेने, भाग न लेने या भागीदारी बंद करने का निर्णय ले सकते हैं।</p>      <h2>9. यदि मैं इस शोध में भाग लेता हूं, तो मेरी गोपनीयता कैसे सुरक्षित रहेगी?</h2>     <p>आपकी पहचान संबंधी जानकारी गोपनीय रहेगी और आपकी अनुमति के बिना साझा नहीं की जाएगी। सभी डेटा गुमनाम रूप से साझा किया जाएगा।</p>      <h2>10. मैं किससे बात कर सकता हूँ?</h2>     <p>प्रश्न या शिकायत के लिए शोध टीम से +91-9831702466 या +12023741209 पर संपर्क करें। हार्वर्ड यूनिवर्सिटी IRB से (617) 496-2847 या cuhs@harvard.edu पर संपर्क करें।</p>"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "consent_text"
+    }
+  },
+  "description": "User Consent Task",
+  "instruction": "User Consent Task",
+  "display_name": "User Consent Task",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": false,
+  "isValidationTask": false,
+  "reassignRejected": false,
+  "outputDatasetName": "[OUT] User Consent Task",
+  "tutorialAvailable": false,
+  "customIntroEnabled": true,
+  "requiresValidation": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "maxReassignmentsPerUser": 1,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false
+}
