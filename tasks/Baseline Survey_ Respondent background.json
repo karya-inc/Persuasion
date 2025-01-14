@@ -1,27 +1,320 @@
 {
   "name": "Baseline Survey: Respondent background",
   "spec": {
-    "end": {
-      "key": "end",
-      "name": "End Component",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": null
-      },
-      "ctype": "END",
-      "description": "Last Component of the task specification"
-    },
     "start": {
       "key": "start",
       "name": "Start Component",
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "first_name_prompt"
       },
       "ctype": "START",
       "description": "First Component of the task specification"
+    },
+    "wife_job_input": {
+      "key": "wife_job_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_job_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_education_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हां",
+          "नहीं",
+          "कभी शादी नहीं की"
+        ]
+      },
+      "selected": {
+        "key": "wife_job",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_job_input"
+    },
+    "last_name_input": {
+      "key": "last_name_input",
+      "name": "last_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_prompt"
+      },
+      "text": {
+        "key": "last_name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "last_name_input"
+    },
+    "wife_job_prompt": {
+      "key": "wife_job_prompt",
+      "name": "wife_job_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_job_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अगर शादीशुदा हैं, तो क्या आपकी पत्नी काम करती हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_job_prompt"
+    },
+    "first_name_input": {
+      "key": "first_name_input",
+      "name": "first_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_prompt"
+      },
+      "text": {
+        "key": "name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "first_name_input"
+    },
+    "last_name_prompt": {
+      "key": "last_name_prompt",
+      "name": "last_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "उपनाम  (उदाहरण: राकेश कुमार)"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "last_name_prompt"
+    },
+    "first_name_prompt": {
+      "key": "first_name_prompt",
+      "name": "first_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "first_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "पहला नाम (उदाहरण: राकेश कुमार)"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "first_name_prompt"
+    },
+    "own_education_input": {
+      "key": "own_education_input",
+      "name": "own_education_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "key": "own_education",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "own_education_input"
+    },
+    "marital_status_input": {
+      "key": "marital_status_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "marital_status_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_job_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "शादी शुदा",
+          "कभी शादी नहीं की",
+          "अलग रहते हैं या तलाक",
+          "अन्य"
+        ]
+      },
+      "selected": {
+        "key": "marital_status",
+        "type": "STRING_ARRAY"
+      },
+      "description": "marital_status_input"
+    },
+    "own_education_prompt": {
+      "key": "own_education_prompt",
+      "name": "own_education_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_education_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपने किस कक्षा तक पढ़ाई की है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "own_education_prompt"
+    },
+    "marital_status_prompt": {
+      "key": "marital_status_prompt",
+      "name": "marital_status_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "marital_status_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "वैवाहिक स्थिति: "
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "marital_status_prompt"
+    },
+    "birthplace_state_input": {
+      "key": "birthplace_state_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "birthplace_state_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_district_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "जम्मू कश्मीर"
+        ]
+      },
+      "selected": {
+        "key": "birthplace_state",
+        "type": "STRING_ARRAY"
+      },
+      "description": "birthplace_state_input"
+    },
+    "birthplace_state_prompt": {
+      "key": "birthplace_state_prompt",
+      "name": "birthplace_state_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका जन्म किस राज्य (जैसे बिहार, झारखंड) में हुआ था?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "birthplace_state_prompt"
+    },
+    "birthplace_district_input": {
+      "key": "birthplace_district_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "birthplace_district_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "marital_status_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "कुपवाड़ा"
+        ]
+      },
+      "selected": {
+        "key": "birthplace_district",
+        "type": "STRING_ARRAY"
+      },
+      "description": "birthplace_district_input"
+    },
+    "birthplace_district_prompt": {
+      "key": "birthplace_district_prompt",
+      "name": "birthplace_district_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_district_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका जन्म कौनसे जिले में हुआ था?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "birthplace_district_prompt"
     }
   },
   "tags": [
