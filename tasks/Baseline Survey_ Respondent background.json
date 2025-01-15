@@ -643,43 +643,43 @@
       "description": "birthplace_district_prompt"
     },
     "daily_activity_prompt": {
-      "ctype":"PLATFORM",
-      "dtype":"TEXT",
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
       "text": {
-        "src":"CONSTANT",
-        "type":"STRING",
+        "src": "CONSTANT",
+        "type": "STRING",
         "value": "सुबह उठने के बाद आप आम तौर पर क्या करते हैं? [उदाहरणों के आधार पर नीचे दिए गए विकल्पों में से एक विकल्प चुनें]"
       },
       "next": {
-        "src":"CONSTANT",
-        "type":"REF",
-        "value":"daily_activity_loop"
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
       }
     },
     "daily_activity_loop": {
-        "next": {
-            "src": "CONSTANT",
-            "type": "REF",
-            "value": "daily_activity_mcq"
-        },
-        "ctype": "LOOP",
-        "ltype": "WHILE",
-        "output": {
-            "key": "daily_activities",
-            "type": "ARRAY"
-        },
-        "condition": {
-            "value": "true",
-            "src": "CONSTANT",
-            "type": "BOOLEAN"
-        }
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_mcq"
+      },
+      "ctype": "LOOP",
+      "ltype": "WHILE",
+      "output": {
+        "key": "daily_activities",
+        "type": "ARRAY"
+      },
+      "condition": {
+        "value": "true",
+        "src": "CONSTANT",
+        "type": "BOOLEAN"
+      }
     },
     "daily_activity_mcq": {
-      "ctype":"USER",
-      "dtype":"MCQ",
+      "ctype": "USER",
+      "dtype": "MCQ",
       "options": {
-        "src":"CONSTANT",
-        "type":"STRING_ARRAY",
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
         "value": [
           "अपने खेत या व्यवसाय पर काम",
           "आय अर्जित करने वाला काम (दैनिक/नियमित वेतन पर) जैसे वेतन वाली नौकरी, निर्माण कार्य",
@@ -692,10 +692,10 @@
         ]
       },
       "selected": {
-        "key":"daily_activity",
-        "type":"STRING_ARRAY"
+        "key": "daily_activity",
+        "type": "STRING_ARRAY"
       },
-     "max": {
+      "max": {
         "src": "CONSTANT",
         "type": "INT",
         "value": 1
@@ -707,54 +707,54 @@
       },
       "next": {
         "key": "daily_activity",
-            "src": "ITER",
-            "type": "REF",
-            "itype": "STRING_ARRAY",
-            "options": {
-                "रात का समय [सोने के लिए वापस चला गया]": "end",
-                "default": "activity_time_prompt"
-            }
+        "src": "ITER",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "रात का समय [सोने के लिए वापस चला गया]": "end",
+          "default": "activity_time_prompt"
+        }
       }
     },
-    "activity_time_prompt" : {
-      "ctype":"PLATFORM",
-      "dtype":"TEXT",
+    "activity_time_prompt": {
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
       "text": {
-        "src":"CONSTANT",
-        "type":"STRING",
+        "src": "CONSTANT",
+        "type": "STRING",
         "value": "आपने इस गतिविधि पर कितना समय बिताया?"
       },
       "next": {
-        "src":"CONSTANT",
-        "type":"REF",
-        "value":"activity_time_input"
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "activity_time_input"
       }
     },
-    "activity_time_input" : {
-      "ctype":"USER",
-      "dtype":"TEXT",
+    "activity_time_input": {
+      "ctype": "USER",
+      "dtype": "TEXT",
       "text": {
-        "type":"STRING",
-        "key":"activity_time"
+        "type": "STRING",
+        "key": "activity_time"
       },
       "next": {
-        "src":"CONSTANT",
-        "type":"REF",
-        "value":"next_activity_prompt"
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "next_activity_prompt"
       }
     },
-    "next_activity_prompt" : {
-      "ctype":"PLATFORM",
-      "dtype":"TEXT",
+    "next_activity_prompt": {
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
       "text": {
-        "src":"CONSTANT",
-        "type":"STRING",
+        "src": "CONSTANT",
+        "type": "STRING",
         "value": "आपकी अगली गतिविधि क्या थी?"
       },
       "next": {
-        "src":"CONSTANT",
-        "type":"REF",
-        "value":"daily_activity_loop"
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
       }
     }
   },
