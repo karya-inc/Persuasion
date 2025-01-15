@@ -382,6 +382,7 @@
         "src": "MTA_OUTPUT",
         "type": "REF",
         "itype": "STRING",
+        "key": "no_of_children",
         "options": {
           "0":"time_use_prompt_1",
           "default":"son_number_prompt"
