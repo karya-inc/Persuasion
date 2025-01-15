@@ -1,6 +1,17 @@
 {
   "name": "Baseline Survey: Respondent background",
   "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
     "start": {
       "key": "start",
       "name": "Start Component",
@@ -11,6 +22,55 @@
       },
       "ctype": "START",
       "description": "First Component of the task specification"
+    },
+    "wake_at_input": {
+      "key": "wake_at_input",
+      "name": "wake_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_prompt"
+      },
+      "text": {
+        "key": "wake_up_at",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "wake_at_input"
+    },
+    "sleep_at_input": {
+      "key": "sleep_at_input",
+      "name": "sleep_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_prompt"
+      },
+      "text": {
+        "key": "sleep_at",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "sleep_at_input"
+    },
+    "wake_at_prompt": {
+      "key": "wake_at_prompt",
+      "name": "wake_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप सुबह कितने बजे उठते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wake_at_prompt"
     },
     "wife_job_input": {
       "key": "wife_job_input",
@@ -63,6 +123,23 @@
       "dtype": "TEXT",
       "description": "last_name_input"
     },
+    "sleep_at_prompt": {
+      "key": "sleep_at_prompt",
+      "name": "sleep_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप रात को कितने बजे सोते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "sleep_at_prompt"
+    },
     "wife_job_prompt": {
       "key": "wife_job_prompt",
       "name": "wife_job_prompt",
@@ -113,6 +190,22 @@
       "dtype": "TEXT",
       "description": "last_name_prompt"
     },
+    "son_number_input": {
+      "key": "son_number_input",
+      "name": "son_number_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daughter_number_prompt"
+      },
+      "text": {
+        "key": "number_of_son",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "son_number_input"
+    },
     "first_name_prompt": {
       "key": "first_name_prompt",
       "name": "first_name_prompt",
@@ -130,13 +223,47 @@
       "dtype": "TEXT",
       "description": "first_name_prompt"
     },
+    "son_number_prompt": {
+      "key": "son_number_prompt",
+      "name": "son_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "son_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके कितने बेटे हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "son_number_prompt"
+    },
+    "time_use_prompt_1": {
+      "key": "time_use_prompt_1",
+      "name": "time_use_prompt_1",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "कृपया याद करें कि आप आप आम तौर पर दिन में किन काम-काजों में समय बिताते हैं। हमें बताइए कि आप अपना समय इन गतिविधियों में कितना खर्च करते हैं - नींद, पैसा कमाने वाले काम, घर के काम (जिनसे पैसा नहीं मिलता), बच्चों की देखभाल और मनोरंजन। बिल्कुल सटीक नंबर की जरूरत नहीं है; आप बस करीब-करीब कितना समय इन कामों में लगाते हैं, वो बता दीजिए।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "time_use_prompt_1"
+    },
     "own_education_input": {
       "key": "own_education_input",
       "name": "own_education_input",
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "wife_education_prompt"
       },
       "text": {
         "key": "own_education",
@@ -199,6 +326,87 @@
       "dtype": "TEXT",
       "description": "own_education_prompt"
     },
+    "own_occupation_input": {
+      "key": "own_occupation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "own_occupation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_occupation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "some job"
+        ]
+      },
+      "selected": {
+        "key": "own_occupation",
+        "type": "STRING_ARRAY"
+      },
+      "description": "own_occupation_input"
+    },
+    "wife_education_input": {
+      "key": "wife_education_input",
+      "name": "wife_education_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_occupation_prompt"
+      },
+      "text": {
+        "key": "wife_education",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "wife_education_input"
+    },
+    "children_number_input": {
+      "key": "children_number_input",
+      "name": "children_number_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "son_number_prompt"
+      },
+      "text": {
+        "key": "no_of_children",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "children_number_input"
+    },
+    "daughter_number_input": {
+      "key": "daughter_number_input",
+      "name": "daughter_number_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "time_use_prompt_1"
+      },
+      "text": {
+        "key": "number_of_daughter",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "daughter_number_input"
+    },
     "marital_status_prompt": {
       "key": "marital_status_prompt",
       "name": "marital_status_prompt",
@@ -215,6 +423,73 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "marital_status_prompt"
+    },
+    "own_occupation_prompt": {
+      "key": "own_occupation_prompt",
+      "name": "own_occupation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_occupation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप क्या काम करते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "own_occupation_prompt"
+    },
+    "wife_education_prompt": {
+      "key": "wife_education_prompt",
+      "name": "wife_education_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_education_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी पत्नी ने किस कक्षा तक पढ़ाई की है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_education_prompt"
+    },
+    "wife_occupation_input": {
+      "key": "wife_occupation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_occupation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "some_job"
+        ]
+      },
+      "selected": {
+        "key": "wife_occupation",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_occupation_input"
     },
     "birthplace_state_input": {
       "key": "birthplace_state_input",
@@ -248,6 +523,57 @@
         "type": "STRING_ARRAY"
       },
       "description": "birthplace_state_input"
+    },
+    "children_number_prompt": {
+      "key": "children_number_prompt",
+      "name": "children_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके कितने बच्चे हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "children_number_prompt"
+    },
+    "daughter_number_prompt": {
+      "key": "daughter_number_prompt",
+      "name": "daughter_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daughter_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी कितनी बेटियाँ हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "daughter_number_prompt"
+    },
+    "wife_occupation_prompt": {
+      "key": "wife_occupation_prompt",
+      "name": "wife_occupation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_occupation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी पत्नी क्या काम करती हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_occupation_prompt"
     },
     "birthplace_state_prompt": {
       "key": "birthplace_state_prompt",
@@ -315,6 +641,121 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "birthplace_district_prompt"
+    },
+    "daily_activity_prompt": {
+      "ctype":"PLATFORM",
+      "dtype":"TEXT",
+      "text": {
+        "src":"CONSTANT",
+        "type":"STRING",
+        "value": "सुबह उठने के बाद आप आम तौर पर क्या करते हैं? [उदाहरणों के आधार पर नीचे दिए गए विकल्पों में से एक विकल्प चुनें]"
+      },
+      "next": {
+        "src":"CONSTANT",
+        "type":"REF",
+        "value":"daily_activity_loop"
+      }
+    },
+    "daily_activity_loop": {
+        "next": {
+            "src": "CONSTANT",
+            "type": "REF",
+            "value": "daily_activity_mcq"
+        },
+        "ctype": "LOOP",
+        "ltype": "WHILE",
+        "output": {
+            "key": "daily_activities",
+            "type": "ARRAY"
+        },
+        "condition": {
+            "value": "true",
+            "src": "CONSTANT",
+            "type": "BOOLEAN"
+        }
+    },
+    "daily_activity_mcq": {
+      "ctype":"USER",
+      "dtype":"MCQ",
+      "options": {
+        "src":"CONSTANT",
+        "type":"STRING_ARRAY",
+        "value": [
+          "अपने खेत या व्यवसाय पर काम",
+          "आय अर्जित करने वाला काम (दैनिक/नियमित वेतन पर) जैसे वेतन वाली नौकरी, निर्माण कार्य",
+          "घर से बाहर आय अर्जित करने वाला काम जैसे सिलाई, टोकरी बनाना, बीड़ी बनाना",
+          "घर के बाहर घरेलू काम जैसे पानी इकट्ठा करना, जलाऊ लकड़ी इकट्ठा करना, किराने का सामान खरीदना, नदी किनारे कपड़े धोना",
+          "घर के अंदर घरेलू काम (जैसे खाना बनाना, सफाई करना)",
+          "बीमार या बुज़ुर्गों की देखभाल करना जैसे a) नहलाना b) कपड़े पहनाना c) स्कूल लाना d) खाना खिलाना e) होमवर्क में मदद करना f) बच्चों के साथ खेलना (सक्रिय रूप से)",
+          "आराम करना फ़ुर्सत से बैठनाजैसे आराम करना b) नहाना, तैयार होना, खाना c) परिवार के सदस्यों या पड़ोसियों से बात करना d) टीवी देखना या रेडियो सुनना e) शादी, अंतिम संस्कार और अन्य समारोह में शामिल होना",
+          "रात का समय [सोने के लिए वापस चला गया]"
+        ]
+      },
+      "selected": {
+        "key":"daily_activity",
+        "type":"STRING_ARRAY"
+      },
+     "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "next": {
+        "key": "daily_activity",
+            "src": "ITER",
+            "type": "REF",
+            "itype": "STRING_ARRAY",
+            "options": {
+                "रात का समय [सोने के लिए वापस चला गया]": "end",
+                "default": "activity_time_prompt"
+            }
+      }
+    },
+    "activity_time_prompt" : {
+      "ctype":"PLATFORM",
+      "dtype":"TEXT",
+      "text": {
+        "src":"CONSTANT",
+        "type":"STRING",
+        "value": "आपने इस गतिविधि पर कितना समय बिताया?"
+      },
+      "next": {
+        "src":"CONSTANT",
+        "type":"REF",
+        "value":"activity_time_input"
+      }
+    },
+    "activity_time_input" : {
+      "ctype":"USER",
+      "dtype":"TEXT",
+      "text": {
+        "type":"STRING",
+        "key":"activity_time"
+      },
+      "next": {
+        "src":"CONSTANT",
+        "type":"REF",
+        "value":"next_activity_prompt"
+      }
+    },
+    "next_activity_prompt" : {
+      "ctype":"PLATFORM",
+      "dtype":"TEXT",
+      "text": {
+        "src":"CONSTANT",
+        "type":"STRING",
+        "value": "आपकी अगली गतिविधि क्या थी?"
+      },
+      "next": {
+        "src":"CONSTANT",
+        "type":"REF",
+        "value":"daily_activity_loop"
+      }
     }
   },
   "tags": [
