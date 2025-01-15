@@ -88,7 +88,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "own_education_prompt"
+        "value": "wife_education_prompt"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -97,8 +97,7 @@
         "type": "STRING_ARRAY",
         "value": [
           "हां",
-          "नहीं",
-          "कभी शादी नहीं की"
+          "नहीं"
         ]
       },
       "selected": {
@@ -151,7 +150,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "अगर शादीशुदा हैं, तो क्या आपकी पत्नी काम करती हैं?"
+        "value": "क्या आपकी पत्नी काम करती हैं?"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -263,7 +262,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "wife_education_prompt"
+        "value": "own_occupation_prompt"
       },
       "text": {
         "key": "own_education",
@@ -287,8 +286,13 @@
       },
       "name": "marital_status_input",
       "next": {
-        "src": "CONSTANT",
+        "src": "MTA_OUTPUT",
         "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "default": "children_number_prompt",
+          "शादी शुदा": "wife_job_prompt"
+        },
         "value": "wife_job_prompt"
       },
       "ctype": "USER",
@@ -342,7 +346,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "wife_occupation_prompt"
+        "value": "marital_status_prompt"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -350,7 +354,15 @@
         "src": "CONSTANT",
         "type": "STRING_ARRAY",
         "value": [
-          "some job"
+          "Administrative/ office job",
+          "Agriculture/ Farming",
+          "Craftsmanship/ tailoring",
+          "Plumbing/ Electrician",
+          "Construction/ Manual labour",
+          "Small business ownership",
+          "Domestic Work",
+          "MGNREGA",
+          "Unemployed"
         ]
       },
       "selected": {
@@ -365,7 +377,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "own_occupation_prompt"
+        "value": "wife_occupation_prompt"
       },
       "text": {
         "key": "wife_education",
@@ -384,8 +396,8 @@
         "itype": "STRING",
         "key": "no_of_children",
         "options": {
-          "0":"time_use_prompt_1",
-          "default":"son_number_prompt"
+          "0": "time_use_prompt_1",
+          "default": "son_number_prompt"
         }
       },
       "text": {
@@ -487,7 +499,15 @@
         "src": "CONSTANT",
         "type": "STRING_ARRAY",
         "value": [
-          "some_job"
+          "Administrative/ office job",
+          "Agriculture/ Farming",
+          "Craftsmanship/ tailoring",
+          "Plumbing/ Electrician",
+          "Construction/ Manual labour",
+          "Small business ownership",
+          "Domestic Work",
+          "MGNREGA",
+          "Unemployed"
         ]
       },
       "selected": {
@@ -627,7 +647,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "marital_status_prompt"
+        "value": "own_education_prompt"
       },
       "ctype": "USER",
       "dtype": "TEXT_SELECT",
@@ -804,7 +824,7 @@
           "मिर्जापुर",
           "सोनभद्र",
           "संत रविदास नगर"
-        ]        
+        ]
       },
       "selected": {
         "key": "birthplace_district",
