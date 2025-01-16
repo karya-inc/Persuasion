@@ -31,12 +31,17 @@
         "type": "REF",
         "value": "daily_activity_prompt"
       },
-      "text": {
-        "key": "wake_up_at",
-        "type": "STRING"
-      },
       "ctype": "USER",
-      "dtype": "TEXT",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "type": "STRING",
+        "key": "wake_up_at"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
       "description": "wake_at_input"
     },
     "sleep_at_input": {
@@ -47,12 +52,17 @@
         "type": "REF",
         "value": "wake_at_prompt"
       },
-      "text": {
-        "key": "sleep_at",
-        "type": "STRING"
-      },
       "ctype": "USER",
-      "dtype": "TEXT",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "type": "STRING",
+        "key": "sleep_at"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
       "description": "sleep_at_input"
     },
     "wake_at_prompt": {
@@ -183,7 +193,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "उपनाम  (उदाहरण: राकेश कुमार)"
+        "value": "<p>उपनाम  (उदाहरण: राकेश <u>कुमार</u>)</p>"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -197,6 +207,23 @@
         "type": "REF",
         "value": "daughter_number_prompt"
       },
+      "type": {
+        "src":"CONSTANT",
+        "type":"ENUM",
+        "value":"NUMBER",
+        "options":{}
+      },
+      "max": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 20
+      },
+      "min": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 0
+      },
+
       "text": {
         "key": "number_of_son",
         "type": "STRING"
@@ -216,7 +243,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "पहला नाम (उदाहरण: राकेश कुमार)"
+        "value": "<p>पहला नाम (उदाहरण: <u>राकेश</u> कुमार)</p>"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -250,7 +277,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "कृपया याद करें कि आप आप आम तौर पर दिन में किन काम-काजों में समय बिताते हैं। हमें बताइए कि आप अपना समय इन गतिविधियों में कितना खर्च करते हैं - नींद, पैसा कमाने वाले काम, घर के काम (जिनसे पैसा नहीं मिलता), बच्चों की देखभाल और मनोरंजन। बिल्कुल सटीक नंबर की जरूरत नहीं है; आप बस करीब-करीब कितना समय इन कामों में लगाते हैं, वो बता दीजिए।"
+        "value": "कृपया याद करें कि आप आम तौर पर दिन में किन काम-काजों में समय बिताते हैं। हमें बताइए कि आप अपना समय इन गतिविधियों में कितना खर्च करते हैं - नींद, पैसा कमाने वाले काम, घर के काम (जिनसे पैसा नहीं मिलता), बच्चों की देखभाल और मनोरंजन। बिल्कुल सटीक नंबर की जरूरत नहीं है; आप बस करीब-करीब कितना समय इन कामों में लगाते हैं, वो बता दीजिए।"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -259,17 +286,47 @@
     "own_education_input": {
       "key": "own_education_input",
       "name": "own_education_input",
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
       "next": {
         "src": "CONSTANT",
         "type": "REF",
         "value": "own_occupation_prompt"
       },
-      "text": {
+      "options": {
+        "src":"CONSTANT",
+        "type":"STRING_ARRAY",
+        "value": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "12+"
+        ]
+      },
+      "selected": {
         "key": "own_education",
-        "type": "STRING"
+        "type": "STRING_ARRAY"
       },
       "ctype": "USER",
-      "dtype": "TEXT",
+      "dtype": "MCQ",
       "description": "own_education_input"
     },
     "marital_status_input": {
@@ -293,7 +350,7 @@
           "default": "children_number_prompt",
           "शादी शुदा": "wife_job_prompt"
         },
-        "value": "wife_job_prompt"
+        "key": "marital_status"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -354,15 +411,15 @@
         "src": "CONSTANT",
         "type": "STRING_ARRAY",
         "value": [
-          "Administrative/ office job",
-          "Agriculture/ Farming",
-          "Craftsmanship/ tailoring",
-          "Plumbing/ Electrician",
-          "Construction/ Manual labour",
-          "Small business ownership",
-          "Domestic Work",
-          "MGNREGA",
-          "Unemployed"
+          "प्रशासनिक/ कार्यालय कार्य",
+          "कृषि/ खेती",
+          "कारीगरी/ दर्जी का काम",
+          "प्लंबिंग/ बिजली का काम",
+          "निर्माण/ शारीरिक श्रम",
+          "छोटे व्यवसाय का स्वामित्व",
+          "घरेलू कार्य",
+          "मनरेगा",
+          "बेरोजगार"
         ]
       },
       "selected": {
@@ -379,12 +436,42 @@
         "type": "REF",
         "value": "wife_occupation_prompt"
       },
-      "text": {
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "selected": {
         "key": "wife_education",
-        "type": "STRING"
+        "type": "STRING_ARRAY"
+      },
+      "options": {
+        "src":"CONSTANT",
+        "type":"STRING_ARRAY",
+        "value": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "12+"
+        ]
       },
       "ctype": "USER",
-      "dtype": "TEXT",
+      "dtype": "MCQ",
       "description": "wife_education_input"
     },
     "children_number_input": {
@@ -399,6 +486,22 @@
           "0": "time_use_prompt_1",
           "default": "son_number_prompt"
         }
+      },
+      "type": {
+        "src":"CONSTANT",
+        "type":"ENUM",
+        "value":"NUMBER",
+        "options":{}
+      },
+      "max": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 20
+      },
+      "min": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 0
       },
       "text": {
         "key": "no_of_children",
@@ -415,6 +518,22 @@
         "src": "CONSTANT",
         "type": "REF",
         "value": "time_use_prompt_1"
+      },
+      "type": {
+        "src":"CONSTANT",
+        "type":"ENUM",
+        "value":"NUMBER",
+        "options":{}
+      },
+      "max": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 20
+      },
+      "min": {
+        "type":"INT",
+        "src":"CONSTANT",
+        "value": 0
       },
       "text": {
         "key": "number_of_daughter",
@@ -499,15 +618,15 @@
         "src": "CONSTANT",
         "type": "STRING_ARRAY",
         "value": [
-          "Administrative/ office job",
-          "Agriculture/ Farming",
-          "Craftsmanship/ tailoring",
-          "Plumbing/ Electrician",
-          "Construction/ Manual labour",
-          "Small business ownership",
-          "Domestic Work",
-          "MGNREGA",
-          "Unemployed"
+          "प्रशासनिक/ कार्यालय कार्य",
+          "कृषि/ खेती",
+          "कारीगरी/ दर्जी का काम",
+          "प्लंबिंग/ बिजली का काम",
+          "निर्माण/ शारीरिक श्रम",
+          "छोटे व्यवसाय का स्वामित्व",
+          "घरेलू कार्य",
+          "मनरेगा",
+          "बेरोजगार"
         ]
       },
       "selected": {
@@ -894,9 +1013,10 @@
           "घर के बाहर घरेलू काम जैसे पानी इकट्ठा करना, जलाऊ लकड़ी इकट्ठा करना, किराने का सामान खरीदना, नदी किनारे कपड़े धोना",
           "घर के अंदर घरेलू काम (जैसे खाना बनाना, सफाई करना)",
           "बीमार या बुज़ुर्गों की देखभाल करना जैसे a) नहलाना b) कपड़े पहनाना c) स्कूल लाना d) खाना खिलाना e) होमवर्क में मदद करना f) बच्चों के साथ खेलना (सक्रिय रूप से)",
-          "आराम करना फ़ुर्सत से बैठनाजैसे आराम करना b) नहाना, तैयार होना, खाना c) परिवार के सदस्यों या पड़ोसियों से बात करना d) टीवी देखना या रेडियो सुनना e) शादी, अंतिम संस्कार और अन्य समारोह में शामिल होना",
-          "रात का समय [सोने के लिए वापस चला गया]",
-          "काम के स्थान से/तक आना-जाना"
+          "आराम करना जैसे a) फ़ुर्सत से बैठना b) नहाना, तैयार होना c) परिवार के सदस्यों या पड़ोसियों से बात करना d) टीवी देखना या रेडियो सुनना e) शादी, अंतिम संस्कार और अन्य समारोह में शामिल होना",
+          "काम के स्थान से/तक आना-जाना",
+          "खाना",
+          "रात का समय [सोने के लिए वापस चला गया]"
         ]
       },
       "selected": {
@@ -940,10 +1060,15 @@
     },
     "activity_time_input": {
       "ctype": "USER",
-      "dtype": "TEXT",
-      "text": {
+      "dtype": "FILL_BLANK",
+      "output": {
         "type": "STRING",
         "key": "activity_time"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
       },
       "next": {
         "src": "CONSTANT",

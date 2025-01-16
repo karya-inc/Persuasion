@@ -105,6 +105,11 @@
         "type": "REF",
         "value": "end"
       },
+      "collapsable": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
