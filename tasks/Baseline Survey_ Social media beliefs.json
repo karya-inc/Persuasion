@@ -330,7 +330,7 @@
   "allowEdit": true,
   "description": "Baseline Survey: Social media beliefs",
   "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
-  "display_name": "सोशल मीडिया पर राय",
+  "display_name": "राय और सामाजिक संबंध",
   "allowSkipping": false,
   "requireConfig": false,
   "enableReferral": false,
