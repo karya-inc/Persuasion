@@ -59,17 +59,17 @@
         "src": "MT_INPUT",
         "type": "FILE"
       },
-      "min_segment_length": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 10000
-      },
+      "description": "segmentation",
       "max_segment_length": {
         "src": "CONSTANT",
         "type": "INT",
         "value": 30000
       },
-      "description": "segmentation"
+      "min_segment_length": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10000
+      }
     },
     "transcription_loop": {
       "key": "transcription_loop",
@@ -180,10 +180,27 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "explicit_prompt"
+        "value": "welcome_prompt"
       },
       "ctype": "START",
       "description": "First Component of the task specification"
+    },
+    "welcome_prompt": {
+      "key": "welcome_prompt",
+      "name": "welcome_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "explicit_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "ऑडियो सेगमेंटेशन और ट्रांसक्रिप्शन कार्य में आपका स्वागत है"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "welcome_prompt"
     },
     "explicit_prompt": {
       "key": "explicit_prompt",

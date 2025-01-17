@@ -82,6 +82,222 @@
       "dtype": "TEXT",
       "description": "frequency_prompt"
     },
+    "context_paragraph": {
+      "key": "context_paragraph",
+      "name": "context_paragraph",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_m_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हम भारतीय परिवारों में रिश्तों और वित्तीय फैसले लेने की प्रक्रिया को समझने की कोशिश कर रहे हैं। कृपया अपने परिवार के इन सदस्यों के बारे में निम्नलिखित प्रश्नों के उत्तर दें (यदि लागू हो): मां "
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "consultation_input": {
+      "key": "consultation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "consultation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "context_paragraph"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "consultation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "alone_friends_input": {
+      "key": "alone_friends_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "alone_friends_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "alone_friends",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "consultation_prompt": {
+      "key": "consultation_prompt",
+      "name": "consultation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या बच्चों की सेहत से जुड़े फैसले लेने के लिए उन्हें परिवार के सदस्यों से सलाह लेनी पड़ती है? [यदि लागू हो]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_prompt": {
+      "key": "alone_friends_prompt",
+      "name": "alone_friends_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें दोस्तों से मिलने के लिए अकेले जाने की अनुमति है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "consultation_m_input": {
+      "key": "consultation_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "consultation_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "consultation_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "alone_friends_m_input": {
+      "key": "alone_friends_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "alone_friends_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "alone_friends_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "consultation_m_prompt": {
+      "key": "consultation_m_prompt",
+      "name": "consultation_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या बच्चों की सेहत से जुड़े फैसले लेने के लिए उन्हें परिवार के सदस्यों से सलाह लेनी पड़ती है? [यदि लागू हो]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
     "womens_agency_context": {
       "key": "womens_agency_context",
       "name": "womens_agency_context",
@@ -94,6 +310,22 @@
         "src": "CONSTANT",
         "type": "STRING",
         "value": "हम भारतीय परिवारों में रिश्तों और वित्तीय फैसले लेने की प्रक्रिया को समझने की कोशिश कर रहे हैं। कृपया अपने परिवार के इन सदस्यों के बारे में निम्नलिखित प्रश्नों के उत्तर दें (यदि लागू हो): पत्नी| अगर आपकी शादी नहीं हुई है, तो अपने भावी जीवनसाथी के हिसाब से जवाब दें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_m_prompt": {
+      "key": "alone_friends_m_prompt",
+      "name": "alone_friends_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या उन्हें दोस्तों से मिलने के लिए अकेले जाने की अनुमति है?"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT"
@@ -247,6 +479,82 @@
         "type": "STRING_ARRAY"
       }
     },
+    "expensive_purchase_m_input": {
+      "key": "expensive_purchase_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "expensive_purchase_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "expensive_purchase_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_input": {
+      "key": "friends_neighborhood_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "friends_neighborhood_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "friends_neighborhood",
+        "type": "STRING_ARRAY"
+      }
+    },
     "social_media_impact_prompt": {
       "key": "social_media_impact_prompt",
       "name": "social_media_impact_prompt",
@@ -264,6 +572,200 @@
       "dtype": "TEXT",
       "description": "social_media_impact_prompt"
     },
+    "expensive_purchase_m_prompt": {
+      "key": "expensive_purchase_m_prompt",
+      "name": "expensive_purchase_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या कोई महंगी चीज़ (जैसे साइकिल/टीवी) खरीदते समय उनकी राय ली जाती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_input": {
+      "key": "public_transportation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "public_transportation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "public_transportation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_m_input": {
+      "key": "friends_neighborhood_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "friends_neighborhood_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "friends_neighborhood_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_prompt ": {
+      "key": "friends_neighborhood_prompt ",
+      "name": "friends_neighborhood_prompt ",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या उन्हें दूसरे मोहल्ले में अपने दोस्तों से मिलने और बात करने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_prompt": {
+      "key": "public_transportation_prompt",
+      "name": "public_transportation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें बस/ट्रेन/ऑटो से कहीं भी जाने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "friends_neighborhood_m_prompt": {
+      "key": "friends_neighborhood_m_prompt",
+      "name": "friends_neighborhood_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें दूसरे मोहल्ले में अपने दोस्तों से मिलने और बात करने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_m_input": {
+      "key": "public_transportation_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "public_transportation_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "public_transportation_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "public_transportation_m_prompt": {
+      "key": "public_transportation_m_prompt",
+      "name": "public_transportation_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें बस/ट्रेन/ऑटो से कहीं भी जाने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
     "clothing_purchase_permission_input": {
       "key": "clothing_purchase_permission_input",
       "max": {
@@ -280,7 +782,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "friends_neighborhood_prompt "
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -317,6 +819,60 @@
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT"
+    },
+    "clothing_purchase_permission_m_input": {
+      "key": "clothing_purchase_permission_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "clothing_purchase_permission_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "clothing_purchase_permission_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "clothing_purchase_permission_m_prompt": {
+      "key": "clothing_purchase_permission_m_prompt",
+      "name": "clothing_purchase_permission_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें अपने लिए कपड़े खरीदने के लिए किसी सदस्य से अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
     }
   },
   "tags": [
@@ -330,7 +886,7 @@
   "allowEdit": true,
   "description": "Baseline Survey: Social media beliefs",
   "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
-  "display_name": "राय और सामाजिक संबंध",
+  "display_name": "सोशल मीडिया पर राय",
   "allowSkipping": false,
   "requireConfig": false,
   "enableReferral": false,

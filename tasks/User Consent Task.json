@@ -105,11 +105,6 @@
         "type": "REF",
         "value": "end"
       },
-      "collapsable": {
-        "src": "CONSTANT",
-        "type": "BOOLEAN",
-        "value": false
-      },
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
@@ -117,6 +112,11 @@
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
+      "collapsable": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
       "description": "consent_text"
     }
   },

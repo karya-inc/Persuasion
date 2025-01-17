@@ -105,6 +105,47 @@
   "files": {},
   "taskType": "MANUAL",
   "allowEdit": false,
+  "introSpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "welcome_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "welcome_prompt": {
+      "key": "welcome_prompt",
+      "name": "welcome_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इमेज लेबलिंग कार्य में आपका स्वागत है"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "welcome_prompt"
+    }
+  },
   "description": "Image Labelling",
   "instruction": "दी गई छवि में वस्तुओं को चिह्नित करें",
   "display_name": "इमेज लेबलिंग",
@@ -158,7 +199,7 @@
   "reassignRejected": false,
   "outputDatasetName": "[OUT] Image Labelling : Latent Treatment",
   "tutorialAvailable": true,
-  "customIntroEnabled": false,
+  "customIntroEnabled": true,
   "requiresValidation": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
