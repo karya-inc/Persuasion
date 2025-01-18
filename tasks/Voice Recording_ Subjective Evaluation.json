@@ -1,0 +1,361 @@
+{
+  "name": "Voice Recording: Subjective Evaluation",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "audio": {
+      "key": "audio",
+      "name": "audio",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "confidence_prompt"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "AUDIO",
+      "recording": {
+        "key": "audio",
+        "src": "MT_INPUT",
+        "type": "FILE"
+      },
+      "description": "audio"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "audio"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "constant_input": {
+      "key": "constant_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "constant_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sound_legible_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "कर्मी बिल्कुल भी आत्मविश्वासी नहीं लग रहा/रही",
+          "कर्मी थोड़ा आत्मविश्वासी लग रहा/रही",
+          "कर्मी काफी आत्मविश्वासी लग रहा/रही",
+          "कर्मी पूरी तरह आत्मविश्वासी लग रहा/रही"
+        ]
+      },
+      "selected": {
+        "key": "recording_confidence",
+        "type": "STRING_ARRAY"
+      },
+      "description": "constant_input"
+    },
+    "confidence_prompt": {
+      "key": "confidence_prompt",
+      "name": "confidence_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "constant_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या रिकॉर्डिंग पूरा करने वाला/वाली कर्मी शांत और आत्मविश्वास से भरा/भरी लग रहा/रही है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "confidence_prompt"
+    },
+    "sound_legible_input": {
+      "key": "sound_legible_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "sound_legible_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "eligible_for_training_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "कर्मी बिल्कुल भी साफ़ नहीं बोल रहा/रही",
+          "कर्मी थोड़ा साफ़ बोल रहा/रही",
+          "कर्मी काफी साफ़ बोल रहा/रही",
+          "कर्मी पूरी तरह साफ़ बोल रहा/रही"
+        ]
+      },
+      "selected": {
+        "key": "sound_legible",
+        "type": "STRING_ARRAY"
+      },
+      "description": "sound_legible_input"
+    },
+    "sound_legible_prompt": {
+      "key": "sound_legible_prompt",
+      "name": "sound_legible_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sound_legible_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या रिकॉर्डिंग पूरा करने वाला/वाली कर्मी साफ़-साफ़ बोल रहा/रही है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "sound_legible_prompt"
+    },
+    "self_evaluation_input": {
+      "key": "self_evaluation_input",
+      "name": "self_evaluation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "text": {
+        "key": "self_evaluation",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "self_evaluation_input"
+    },
+    "self_evaluation_prompt": {
+      "key": "self_evaluation_prompt",
+      "name": "self_evaluation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "self_evaluation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अपने जवाबों/मूल्यांकन पर आपको कितना भरोसा है (1-10 के बीच रेटिंग दें)?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "self_evaluation_prompt"
+    },
+    "eligible_for_training_input": {
+      "key": "eligible_for_training_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "eligible_for_training_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "self_evaluation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "बिल्कुल नहीं, इन्हें ट्रेनिंग देने में दिक्कत होगी",
+          "शायद थोड़ा-थोड़ा ट्रेनिंग दे सकते/सकती हैं",
+          "काफी अच्छी तरह से ट्रेनिंग दे सकते/सकती हैं",
+          "बिल्कुल अव्वल ट्रेनिंग दे सकते/सकती हैं"
+        ]
+      },
+      "selected": {
+        "key": "eligible_for_training",
+        "type": "STRING_ARRAY"
+      },
+      "description": "eligible_for_training_input"
+    },
+    "eligible_for_training_prompt": {
+      "key": "eligible_for_training_prompt",
+      "name": "eligible_for_training_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "eligible_for_training_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपको लगता है कि यह कर्मचारी दूसरे कर्मियों को ट्रेनिंग दे पाएंगे/पाएंगी?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "eligible_for_training_prompt"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "voice-recording-evaluation"
+  ],
+  "files": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "introSpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "intro_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "intro_prompt": {
+      "key": "intro_prompt",
+      "name": "intro_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इस सेक्शन में, हम कुछ ऑडियो रिकॉर्डिंग्स की क्वालिटी को अच्छे से समझने की कोशिश कर रहे हैं। ध्यान दें, यह कोई कार्या \"डेटा चेक\" करने का काम नहीं है, बल्कि यह एक व्यक्तिगत राय देने वाला काम है। आपको बस नीचे दी गई रिकॉर्डिंग्स को ध्यान से सुनना है और फिर उनके बारे में जो सवाल पूछे जा रहे हैं, उनका जवाब देना है।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "intro_prompt"
+    }
+  },
+  "surveySpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referral_message"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "referral_message": {
+      "key": "referral_message",
+      "name": "referral_message",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "\"हम Karya कर्मचारी पूल बनाने की कोशिश कर रहे हैं। क्या आप अपनी पत्नी/माँ/बहन को Karya कार्यकर्ता के रूप में आवेदन करने की अनुमति/प्रोत्साहित करने के लिए तैयार हैं? यदि आप हाँ कहते हैं, तो आपको रेफरल सिस्टम पर पुनः निर्देशित किया जाएगा। ध्यान दें कि हम उनसे संपर्क करेंगे ताकि उन्हें कार्यकर्ता समूह में जोड़ने के लिए उनका विवरण एकत्र किया जा सके। यह पूरी तरह आपका निर्णय है, और आपका निर्णय चाहे जो भी हो, इसका आपके काम पर कोई असर नहीं पड़ेगा। a) हाँ b) नहीं c) नहीं क्योंकि वह पहले से ही Karya में काम करती है d) पत्नी/माँ/बहन नहीं है"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "referral_message"
+    }
+  },
+  "description": "Voice Recording: Subjective Evaluation",
+  "instruction": "आपको बस नीचे दी गई रिकॉर्डिंग्स को ध्यान से सुनना है और फिर उनके बारे में जो सवाल पूछे जा रहे हैं, उनका जवाब देना है।",
+  "display_name": "ऑडियो रिकॉर्डिंग्स: व्यक्तिगत राय",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": true,
+  "isValidationTask": false,
+  "reassignRejected": false,
+  "outputDatasetName": "[OUT] Voice Recording: Subjective Evaluation",
+  "tutorialAvailable": false,
+  "customIntroEnabled": true,
+  "requiresValidation": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "maxReassignmentsPerUser": 1,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false
+}
