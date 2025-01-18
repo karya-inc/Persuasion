@@ -1,0 +1,1294 @@
+{
+  "name": "Endline Survey",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "time_use_prompt_1"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "manly_input": {
+      "key": "manly_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "manly_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_neglecting_duty_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह सहमत हूँ",
+          "मैं कुछ हद तक सहमत हूँ",
+          "मैं न सहमत हूँ, न असहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "husband_is_manly",
+        "type": "STRING_ARRAY"
+      },
+      "description": "manly_input"
+    },
+    "manly_prompt": {
+      "key": "manly_prompt",
+      "name": "manly_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "manly_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "प्रवीण और मालती की शादी पिछले साल हुई थी। प्रवीण अपनी पत्नी को फल और सब्जियां खरीदने, रात के खाने की तैयारी करने, बारी-बारी से चाय बनाने और घर को साफ रखने में मदद करता है। प्रवीण की किराने की दुकान है और मालती सिलाई व्यवसाय करती है। \nआप इस वाक्य से कितने सहमत या असहमत हैं: <b>\"क्योंकि प्रवीण इतना घर का काम करता है, वह शायद बहुत मर्दाना नहीं है।\"</b>"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "manly_prompt"
+    },
+    "wake_at_input": {
+      "key": "wake_at_input",
+      "name": "wake_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "wake_up_at",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
+      "description": "wake_at_input"
+    },
+    "sleep_at_input": {
+      "key": "sleep_at_input",
+      "name": "sleep_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "sleep_at",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
+      "description": "sleep_at_input"
+    },
+    "wake_at_prompt": {
+      "key": "wake_at_prompt",
+      "name": "wake_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप सुबह कितने बजे उठते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wake_at_prompt"
+    },
+    "sleep_at_prompt": {
+      "key": "sleep_at_prompt",
+      "name": "sleep_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप रात को कितने बजे सोते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "sleep_at_prompt"
+    },
+    "context_paragraph": {
+      "key": "context_paragraph",
+      "name": "context_paragraph",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_m_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हम भारतीय परिवारों में रिश्तों और वित्तीय फैसले लेने की प्रक्रिया को समझने की कोशिश कर रहे हैं। कृपया अपने परिवार के इन सदस्यों के बारे में निम्नलिखित प्रश्नों के उत्तर दें (यदि लागू हो): <b><u>मां</u></b> "
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "time_use_prompt_1": {
+      "key": "time_use_prompt_1",
+      "name": "time_use_prompt_1",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "कृपया याद करें कि आप आम तौर पर दिन में किन काम-काजों में समय बिताते हैं। हमें बताइए कि आप अपना समय इन गतिविधियों में कितना खर्च करते हैं - नींद, पैसा कमाने वाले काम, घर के काम (जिनसे पैसा नहीं मिलता), बच्चों की देखभाल और मनोरंजन। बिल्कुल सटीक नंबर की जरूरत नहीं है; आप बस करीब-करीब कितना समय इन कामों में लगाते हैं, वो बता दीजिए।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "time_use_prompt_1"
+    },
+    "consultation_input": {
+      "key": "consultation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "consultation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "context_paragraph"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "consultation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "daily_activity_mcq": {
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "next": {
+        "key": "daily_activity",
+        "src": "ITER",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "default": "activity_time_prompt",
+          "रात का समय [सोने के लिए वापस चला गया]": "income_inequality_prompt"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "अपने खेत या व्यवसाय पर काम",
+          "आय अर्जित करने वाला काम (दैनिक/नियमित वेतन पर) जैसे वेतन वाली नौकरी, निर्माण कार्य",
+          "घर से बाहर आय अर्जित करने वाला काम जैसे सिलाई, टोकरी बनाना, बीड़ी बनाना",
+          "घर के बाहर घरेलू काम जैसे पानी इकट्ठा करना, जलाऊ लकड़ी इकट्ठा करना, किराने का सामान खरीदना, नदी किनारे कपड़े धोना",
+          "घर के अंदर घरेलू काम (जैसे खाना बनाना, सफाई करना)",
+          "बीमार या बुज़ुर्गों की देखभाल करना जैसे a) नहलाना b) कपड़े पहनाना c) स्कूल लाना d) खाना खिलाना e) होमवर्क में मदद करना f) बच्चों के साथ खेलना (सक्रिय रूप से)",
+          "आराम करना जैसे a) फ़ुर्सत से बैठना b) नहाना, तैयार होना c) परिवार के सदस्यों या पड़ोसियों से बात करना d) टीवी देखना या रेडियो सुनना e) शादी, अंतिम संस्कार और अन्य समारोह में शामिल होना",
+          "काम के स्थान से/तक आना-जाना",
+          "खाना",
+          "रात का समय [सोने के लिए वापस चला गया]"
+        ]
+      },
+      "selected": {
+        "key": "daily_activity",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "activity_time_input": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "next_activity_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "activity_time",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      }
+    },
+    "alone_friends_input": {
+      "key": "alone_friends_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "alone_friends_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "alone_friends",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "consultation_prompt": {
+      "key": "consultation_prompt",
+      "name": "consultation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या बच्चों की सेहत से जुड़े फैसले लेने के लिए उन्हें परिवार के सदस्यों से सलाह लेनी पड़ती है? [यदि लागू हो]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "daily_activity_loop": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_mcq"
+      },
+      "ctype": "LOOP",
+      "ltype": "WHILE",
+      "output": {
+        "key": "daily_activities",
+        "type": "ARRAY"
+      },
+      "condition": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": "true"
+      }
+    },
+    "women_agency_prompt": {
+      "key": "women_agency_prompt",
+      "name": "women_agency_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हम भारतीय परिवारों में रिश्तों और वित्तीय फैसले लेने की प्रक्रिया को समझने की कोशिश कर रहे हैं। कृपया अपने परिवार के इन सदस्यों के बारे में निम्नलिखित प्रश्नों के उत्तर दें (यदि लागू हो): <b>पत्नी |</b> अगर आपकी शादी नहीं हुई है, तो अपने भावी जीवनसाथी के हिसाब से जवाब दें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "women_agency_prompt"
+    },
+    "activity_time_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "activity_time_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपने इस गतिविधि पर कितना समय बिताया?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_prompt": {
+      "key": "alone_friends_prompt",
+      "name": "alone_friends_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें दोस्तों से मिलने के लिए अकेले जाने की अनुमति है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "consultation_m_input": {
+      "key": "consultation_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "consultation_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "comprehension_check_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "consultation_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "next_activity_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी अगली गतिविधि क्या थी?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_m_input": {
+      "key": "alone_friends_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "alone_friends_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "alone_friends_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "consultation_m_prompt": {
+      "key": "consultation_m_prompt",
+      "name": "consultation_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या बच्चों की सेहत से जुड़े फैसले लेने के लिए उन्हें परिवार के सदस्यों से सलाह लेनी पड़ती है? [यदि लागू हो]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "daily_activity_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "सुबह उठने के बाद आप आम तौर पर क्या करते हैं? [उदाहरणों के आधार पर नीचे दिए गए विकल्पों में से एक विकल्प चुनें]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_m_prompt": {
+      "key": "alone_friends_m_prompt",
+      "name": "alone_friends_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या उन्हें दोस्तों से मिलने के लिए अकेले जाने की अनुमति है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "income_inequality_input": {
+      "key": "income_inequality_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "income_inequality_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_factor_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह सहमत हूँ",
+          "मैं कुछ हद तक सहमत हूँ",
+          "मैं न सहमत हूँ, न असहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "income_inequality",
+        "type": "STRING_ARRAY"
+      },
+      "description": "income_inequality_input"
+    },
+    "market_permission_input": {
+      "key": "market_permission_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "market_permission_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "market_permission",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "expensive_purchase_input": {
+      "key": "expensive_purchase_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "expensive_purchase_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "market_permission_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "expensive_purchase",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "income_inequality_prompt": {
+      "key": "income_inequality_prompt",
+      "name": "income_inequality_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप इस वाक्य से कितने सहमत या असहमत हैं: \"आय की असमानता आज भारत में एक गंभीर समस्या है\"?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "income_inequality_prompt"
+    },
+    "market_permission_prompt": {
+      "key": "market_permission_prompt",
+      "name": "market_permission_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "market_permission_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें बाज़ार से सामान खरीदने के लिए परिवार के किसी सदस्य से अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "comprehension_check_input": {
+      "key": "comprehension_check_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "comprehension_check_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "persuade_opinions",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "expensive_purchase_prompt": {
+      "key": "expensive_purchase_prompt",
+      "name": "expensive_purchase_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या कोई महंगी चीज़ (जैसे साइकिल/टीवी) खरीदते समय उनकी राय ली जाती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "comprehension_check_prompt": {
+      "key": "comprehension_check_prompt",
+      "name": "comprehension_check_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "comprehension_check_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या आपको लगता है कि इस ऐप पर आपको पिछले महीने दिए गए कार्य सीधे आपके विचारों को बदलने की कोशिश कर रहे थे?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "expensive_purchase_m_input": {
+      "key": "expensive_purchase_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "expensive_purchase_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "expensive_purchase_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_input": {
+      "key": "friends_neighborhood_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "friends_neighborhood_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "friends_neighborhood",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "wife_neglecting_duty_input": {
+      "key": "wife_neglecting_duty_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_neglecting_duty_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "women_agency_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह सहमत हूँ",
+          "मैं कुछ हद तक सहमत हूँ",
+          "मैं न सहमत हूँ, न असहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "wife_neglecting_duty",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_neglecting_duty_input"
+    },
+    "expensive_purchase_m_prompt": {
+      "key": "expensive_purchase_m_prompt",
+      "name": "expensive_purchase_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या कोई महंगी चीज़ (जैसे साइकिल/टीवी) खरीदते समय उनकी राय ली जाती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_input": {
+      "key": "public_transportation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "public_transportation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "public_transportation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "wife_neglecting_duty_prompt": {
+      "key": "wife_neglecting_duty_prompt",
+      "name": "wife_neglecting_duty_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_neglecting_duty_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप इस वाक्य से कितने सहमत या असहमत हैं: <b>\"चूंकि मालती नौकरी करती है, इसलिए वह एक पत्नी/माँ के रूप में अपनी ज़िम्मेदारी को नज़रअंदाज कर रही होगी।\"</b>"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_neglecting_duty_prompt"
+    },
+    "friends_neighborhood_m_input": {
+      "key": "friends_neighborhood_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "friends_neighborhood_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "friends_neighborhood_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_prompt ": {
+      "key": "friends_neighborhood_prompt ",
+      "name": "friends_neighborhood_prompt ",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या उन्हें दूसरे मोहल्ले में अपने दोस्तों से मिलने और बात करने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_prompt": {
+      "key": "public_transportation_prompt",
+      "name": "public_transportation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें बस/ट्रेन/ऑटो से कहीं भी जाने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "friends_neighborhood_m_prompt": {
+      "key": "friends_neighborhood_m_prompt",
+      "name": "friends_neighborhood_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें दूसरे मोहल्ले में अपने दोस्तों से मिलने और बात करने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_m_input": {
+      "key": "public_transportation_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "public_transportation_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "public_transportation_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "income_inequality_factor_input": {
+      "key": "income_inequality_factor_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "income_inequality_factor_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "manly_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "शिक्षा की कमी",
+          "भ्रष्टाचार",
+          "कानूनों की कमी",
+          "जाति, धर्म या लिंग के आधार पर भेदभाव",
+          "नौकरी के मौके की कमी"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "income_inequality_factor",
+        "type": "STRING_ARRAY"
+      },
+      "description": "income_inequality_factor_input"
+    },
+    "public_transportation_m_prompt": {
+      "key": "public_transportation_m_prompt",
+      "name": "public_transportation_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें बस/ट्रेन/ऑटो से कहीं भी जाने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "income_inequality_factor_prompt": {
+      "key": "income_inequality_factor_prompt",
+      "name": "income_inequality_factor_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_factor_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके अनुसार, भारत में आर्थिक असमानता का सबसे बड़ा कारण क्या है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "income_inequality_factor_prompt"
+    },
+    "clothing_purchase_permission_input": {
+      "key": "clothing_purchase_permission_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "clothing_purchase_permission_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_prompt "
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "clothing_purchase_permission",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "clothing_purchase_permission_prompt": {
+      "key": "clothing_purchase_permission_prompt",
+      "name": "clothing_purchase_permission_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " क्या उन्हें अपने लिए कपड़े खरीदने के लिए किसी सदस्य से अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "clothing_purchase_permission_m_input": {
+      "key": "clothing_purchase_permission_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "clothing_purchase_permission_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "clothing_purchase_permission_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "clothing_purchase_permission_m_prompt": {
+      "key": "clothing_purchase_permission_m_prompt",
+      "name": "clothing_purchase_permission_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या उन्हें अपने लिए कपड़े खरीदने के लिए किसी सदस्य से अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "endline-survey"
+  ],
+  "files": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "description": "Endline Survey",
+  "instruction": "Endline Survey",
+  "display_name": "Endline Survey",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": false,
+  "isValidationTask": false,
+  "reassignRejected": false,
+  "outputDatasetName": "[OUT] Endline Survey",
+  "tutorialAvailable": false,
+  "customIntroEnabled": false,
+  "requiresValidation": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "maxReassignmentsPerUser": 1,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false
+}
