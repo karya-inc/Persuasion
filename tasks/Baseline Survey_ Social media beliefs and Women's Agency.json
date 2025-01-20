@@ -1,5 +1,5 @@
 {
-  "name": "Baseline Survey: Social media beliefs",
+  "name": "Baseline Survey: Social media beliefs and Women's Agency",
   "spec": {
     "end": {
       "key": "end",
@@ -879,14 +879,15 @@
     "persuasion",
     "baseline-survey",
     "social-media-beliefs",
+    "women's-agency",
     "hindi"
   ],
   "files": {},
   "taskType": "MANUAL",
   "allowEdit": true,
-  "description": "Baseline Survey: Social media beliefs",
+  "description": "Baseline Survey: Social media beliefs and Women's Agency",
   "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
-  "display_name": "सोशल मीडिया पर राय",
+  "display_name": "सामाजिक राय",
   "allowSkipping": false,
   "requireConfig": false,
   "enableReferral": false,
@@ -894,7 +895,7 @@
   "surveyAvailable": false,
   "isValidationTask": false,
   "reassignRejected": false,
-  "outputDatasetName": "[OUT]Baseline Survey: Social media beliefs [HIND]",
+  "outputDatasetName": "[OUT]Baseline Survey: Social media beliefs and Women's Agency",
   "tutorialAvailable": false,
   "customIntroEnabled": false,
   "requiresValidation": false,

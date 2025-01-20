@@ -148,7 +148,6 @@
     },
     "self_evaluation_input": {
       "key": "self_evaluation_input",
-      "name": "self_evaluation_input",
       "max": {
         "src": "CONSTANT",
         "type": "INT",
@@ -159,20 +158,21 @@
         "type": "INT",
         "value": 1
       },
+      "name": "self_evaluation_input",
       "next": {
         "src": "CONSTANT",
         "type": "REF",
         "value": "end"
+      },
+      "text": {
+        "key": "self_evaluation",
+        "type": "STRING"
       },
       "type": {
         "src": "CONSTANT",
         "type": "ENUM",
         "value": "NUMBER",
         "options": {}
-      },
-      "text": {
-        "key": "self_evaluation",
-        "type": "STRING"
       },
       "ctype": "USER",
       "dtype": "TEXT",
@@ -326,7 +326,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "referral_component"
       },
       "text": {
         "src": "CONSTANT",
@@ -336,6 +336,22 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "referral_message"
+    },
+    "referral_component": {
+      "key": "referral_component",
+      "name": "referral_component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "referred": {
+        "key":"referred",
+        "type":"STRING"
+      },
+      "ctype": "USER",
+      "dtype": "REFER_WORKER",
+      "description": "referral_component"
     }
   },
   "description": "Voice Recording: Subjective Evaluation",

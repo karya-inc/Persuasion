@@ -1,5 +1,5 @@
 {
-  "name": "Voice Annotation: Control",
+  "name": "Voice Recording: Latent Treatment",
   "spec": {
     "end": {
       "key": "end",
@@ -83,9 +83,11 @@
   "tags": [
     "persuasion",
     "voice-recording",
-    "control"
+    "latent-treatment"
   ],
-  "files": {},
+  "files": {
+    "tutorial_spec__tutorial_video": "T-10681.K-tutorial_spec__tutorial_video.R-7timbx444uu2qint.mp4"
+  },
   "taskType": "MANUAL",
   "allowEdit": false,
   "introSpec": {
@@ -180,9 +182,9 @@
       "description": "welcome_note"
     }
   },
-  "description": "Voice annotation of sentences, news excerpts and long passages in Hindi \n",
-  "instruction": "वॉइस एनोटेशन",
-  "display_name": "वॉइस एनोटेशन",
+  "description": "Voice recording of sentences, news excerpts and long passages in Hindi \n",
+  "instruction": "वॉइस रिकार्डिंग",
+  "display_name": "वॉइस रिकार्डिंग",
   "tutorialSpec": {
     "end": {
       "key": "end",
@@ -212,7 +214,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "tutorial_video"
       },
       "text": {
         "src": "CONSTANT",
@@ -222,6 +224,23 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "prompt_1"
+    },
+    "tutorial_video": {
+      "key": "tutorial_video",
+      "name": "tutorial_video",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "VIDEO",
+      "video": {
+        "src": "CONSTANT",
+        "type": "FILE",
+        "value": "T-10681.K-tutorial_spec__tutorial_video.R-7timbx444uu2qint.mp4"
+      },
+      "description": "tutorial_video"
     }
   },
   "allowSkipping": false,
@@ -231,7 +250,7 @@
   "surveyAvailable": false,
   "isValidationTask": false,
   "reassignRejected": false,
-  "outputDatasetName": "[OUT] Voice Annotation: Control",
+  "outputDatasetName": "[OUT] Voice Recording: Latent Treatment",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
