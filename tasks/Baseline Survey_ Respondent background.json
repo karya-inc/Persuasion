@@ -18,7 +18,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "first_name_prompt"
+        "value": "name_prompt"
       },
       "ctype": "START",
       "description": "First Component of the task specification"
@@ -116,22 +116,6 @@
       },
       "description": "wife_job_input"
     },
-    "last_name_input": {
-      "key": "last_name_input",
-      "name": "last_name_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "birthplace_state_prompt"
-      },
-      "text": {
-        "key": "last_name",
-        "type": "STRING"
-      },
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "last_name_input"
-    },
     "sleep_at_prompt": {
       "key": "sleep_at_prompt",
       "name": "sleep_at_prompt",
@@ -166,13 +150,13 @@
       "dtype": "TEXT",
       "description": "wife_job_prompt"
     },
-    "first_name_input": {
-      "key": "first_name_input",
-      "name": "first_name_input",
+    "name_input": {
+      "key": "name_input",
+      "name": "name_input",
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "last_name_prompt"
+        "value": "birthplace_state_prompt"
       },
       "text": {
         "key": "name",
@@ -180,24 +164,7 @@
       },
       "ctype": "USER",
       "dtype": "TEXT",
-      "description": "first_name_input"
-    },
-    "last_name_prompt": {
-      "key": "last_name_prompt",
-      "name": "last_name_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "last_name_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "<p>उपनाम  (उदाहरण: राकेश <u>कुमार</u>)</p>"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "last_name_prompt"
+      "description": "name_input"
     },
     "son_number_input": {
       "key": "son_number_input",
@@ -231,22 +198,22 @@
       "dtype": "TEXT",
       "description": "son_number_input"
     },
-    "first_name_prompt": {
-      "key": "first_name_prompt",
-      "name": "first_name_prompt",
+    "name_prompt": {
+      "key": "name_prompt",
+      "name": "name_prompt",
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "first_name_input"
+        "value": "name_input"
       },
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "<p>पहला नाम (उदाहरण: <u>राकेश</u> कुमार)</p>"
+        "value": "पूरा नाम"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
-      "description": "first_name_prompt"
+      "description": "name_prompt"
     },
     "son_number_prompt": {
       "key": "son_number_prompt",
