@@ -63,7 +63,6 @@
     "explicit-treatment"
   ],
   "files": {
-    "tutorial_spec__tutorial_video_segmentation": "T-10683.K-tutorial_spec__tutorial_video_segmentation.R-1s1hjzizat16kn13.mp4",
     "tutorial_spec__tutorial_video_transcription": "T-10683.K-tutorial_spec__tutorial_video_transcription.R-02xop1hcbda4fysr.mp4"
   },
   "taskType": "MANUAL",
@@ -126,7 +125,7 @@
       "description": "explicit_prompt"
     }
   },
-  "description": "Prompt for latent treatment + control group: same as a typical Karya audio segmentation + \ntranscription task. \n\nPrompt for explicit treatment group: same as above with the following extra sentence. \nजब आप ऑडियो सुन रहे हों, तो ध्यान दें कि ये भारत में पुरुष और महिलाओं के बीच समानता के बारे में क्या सिखा रहे हैं।\n",
+  "description": "Prompt for latent treatment + control group: same as a typical Karya audio transcription task. \n\nPrompt for explicit treatment group: same as above with the following extra sentence. \nजब आप ऑडियो सुन रहे हों, तो ध्यान दें कि ये भारत में पुरुष और महिलाओं के बीच समानता के बारे में क्या सिखा रहे हैं।\n",
   "instruction": "रिकॉर्डिंग सुनें और जो सुनें उसे लिखें",
   "display_name": "ऑडियो ट्रांस्क्रिप्शन",
   "tutorialSpec": {
