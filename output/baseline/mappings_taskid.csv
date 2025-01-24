@@ -1,0 +1,16 @@
+task_id,name
+10691,User Consent Task
+10677,Baseline Survey: Respondent background
+10678,Baseline Survey: Social media beliefs and Women's Agency
+10679,Baseline Survey: Other beliefs
+10682,Voice Recording: Control
+10680,Voice Recording: Explicit Treatment
+10681,Voice Recording: Latent Treatment
+10685,Audio Transcription : Control
+10683,Audio Transcription : Explicit Treatment
+10684,Audio Transcription : Latent Treatment
+10688,Image Labelling : Control
+10686,Image Labelling : Explicit Treatment
+10687,Image Labelling : Latent Treatment
+10689,Endline Survey
+10690,Voice Recording: Subjective Evaluation
