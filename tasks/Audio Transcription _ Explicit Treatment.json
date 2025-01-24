@@ -261,27 +261,10 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "tutorial_video_segmentation"
+        "value": "tutorial_video_transcription"
       },
       "ctype": "START",
       "description": "First Component of the task specification"
-    },
-    "tutorial_video_segmentation": {
-      "key": "tutorial_video_segmentation",
-      "name": "tutorial_video_segmentation",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "tutorial_video_transcription"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "VIDEO",
-      "video": {
-        "src": "CONSTANT",
-        "type": "FILE",
-        "value": "T-10683.K-tutorial_spec__tutorial_video_segmentation.R-1s1hjzizat16kn13.mp4"
-      },
-      "description": "tutorial_video_segmentation"
     },
     "tutorial_video_transcription": {
       "key": "tutorial_video_transcription",
