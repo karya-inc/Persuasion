@@ -29,23 +29,6 @@
       },
       "description": "audio"
     },
-    "audio_validation_prompt": {
-      "key": "audio_validation_prompt",
-      "name": "audio_validation_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "audio"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "नीचे दिए गए ऑडियो को ध्यान से सुनें। और इस ऑडियो के आधार पर निम्नलिखित सवालों के जवाब दें।"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "audio_validation_prompt"
-    },
     "start": {
       "key": "start",
       "name": "Start Component",
@@ -162,6 +145,23 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "sound_legible_prompt"
+    },
+    "audio_validation_prompt": {
+      "key": "audio_validation_prompt",
+      "name": "audio_validation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "audio"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "नीचे दिए गए ऑडियो को ध्यान से सुनें। और इस ऑडियो के आधार पर निम्नलिखित सवालों के जवाब दें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "audio_validation_prompt"
     },
     "eligible_for_training_input": {
       "key": "eligible_for_training_input",
@@ -313,12 +313,12 @@
         "type": "REF",
         "value": "end"
       },
-      "referred": {
-        "key":"referred",
-        "type":"STRING"
-      },
       "ctype": "USER",
       "dtype": "REFER_WORKER",
+      "referred": {
+        "key": "referred",
+        "type": "STRING"
+      },
       "description": "referral_component"
     }
   },
