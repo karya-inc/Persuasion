@@ -450,6 +450,46 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT"
     },
+    "market_permission_m_input": {
+      "key": "market_permission_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "market_permission_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_m_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "market_permission_m",
+        "type": "STRING_ARRAY"
+      }
+    },
     "social_media_impact_input": {
       "key": "social_media_impact_input",
       "max": {
@@ -507,7 +547,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "clothing_purchase_permission_m_prompt"
+        "value": "market_permission_m_prompt"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -570,6 +610,22 @@
         "key": "friends_neighborhood",
         "type": "STRING_ARRAY"
       }
+    },
+    "market_permission_m_prompt": {
+      "key": "market_permission_m_prompt",
+      "name": "market_permission_m_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "market_permission_m_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>माँ</b> को बाज़ार से सामान खरीदने के लिए परिवार के किसी सदस्य से <b>या आपसे/b> अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
     },
     "social_media_impact_prompt": {
       "key": "social_media_impact_prompt",
