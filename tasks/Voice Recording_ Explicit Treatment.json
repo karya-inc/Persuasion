@@ -18,7 +18,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "explicit_prompt"
+        "value": "sentence"
       },
       "ctype": "START",
       "description": "First Component of the task specification"
@@ -78,23 +78,6 @@
           "44k": "44.1 KHz"
         }
       }
-    },
-    "explicit_prompt": {
-      "key": "explicit_prompt",
-      "name": "explicit_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "sentence"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "कृपया ध्यान दें कि ये कार्य भारत में पुरुष और महिलाओं के बीच समानता के बारे में क्या सिखा रहे है "
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "explicit_prompt"
     }
   },
   "tags": [
@@ -106,7 +89,7 @@
     "tutorial_spec__tutorial_video": "T-10680.K-tutorial_spec__tutorial_video.R-8cgawpaajs7gw164.mp4"
   },
   "taskType": "MANUAL",
-  "allowEdit": false,
+  "allowEdit": true,
   "introSpec": {
     "end": {
       "key": "end",
@@ -236,7 +219,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "जब आप नीचे दिए गए कार्य पूरे करेंगे, तो आप देखेंगे कि इनमें से कई कार्य आपको महिलाओं के अधिकारों के बारे में सिखा रहे हैं। यह जानबूझकर किया गया है क्योंकि हम चाहते हैं कि हमारे कर्मचारी पुरुष और महिलाओं के बीच समानता के बारे में विचार करें।"
+        "value": "<b><u>जब आप नीचे दिए गए कार्य पूरे करेंगे, तो आप देखेंगे कि इनमें से कई कार्य आपको महिलाओं के अधिकारों के बारे में सिखा रहे हैं। यह जानबूझकर किया गया है क्योंकि हम चाहते हैं कि हमारे कर्मचारी पुरुष और महिलाओं के बीच समानता के बारे में विचार करें।</u></b>"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",

@@ -104,7 +104,7 @@
   ],
   "files": {},
   "taskType": "MANUAL",
-  "allowEdit": false,
+  "allowEdit": true,
   "introSpec": {
     "end": {
       "key": "end",

@@ -89,7 +89,7 @@
     "tutorial_spec__tutorial_video": "T-10681.K-tutorial_spec__tutorial_video.R-7timbx444uu2qint.mp4"
   },
   "taskType": "MANUAL",
-  "allowEdit": false,
+  "allowEdit": true,
   "introSpec": {
     "end": {
       "key": "end",
