@@ -23,6 +23,39 @@
       "ctype": "START",
       "description": "First Component of the task specification"
     },
+    "name_input": {
+      "key": "name_input",
+      "name": "name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_prompt"
+      },
+      "text": {
+        "key": "name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "name_input"
+    },
+    "name_prompt": {
+      "key": "name_prompt",
+      "name": "name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "पूरा नाम"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "name_prompt"
+    },
     "wake_at_input": {
       "key": "wake_at_input",
       "name": "wake_at_input",
@@ -150,22 +183,6 @@
       "dtype": "TEXT",
       "description": "wife_job_prompt"
     },
-    "name_input": {
-      "key": "name_input",
-      "name": "name_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "birthplace_state_prompt"
-      },
-      "text": {
-        "key": "name",
-        "type": "STRING"
-      },
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "name_input"
-    },
     "son_number_input": {
       "key": "son_number_input",
       "max": {
@@ -198,23 +215,6 @@
       "dtype": "TEXT",
       "description": "son_number_input"
     },
-    "name_prompt": {
-      "key": "name_prompt",
-      "name": "name_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "name_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "पूरा नाम"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "name_prompt"
-    },
     "son_number_prompt": {
       "key": "son_number_prompt",
       "name": "son_number_prompt",
@@ -238,7 +238,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "sleep_at_prompt"
+        "value": "time_use_voice_note"
       },
       "text": {
         "src": "CONSTANT",
@@ -375,6 +375,23 @@
         "type": "STRING_ARRAY"
       },
       "description": "own_education_input"
+    },
+    "time_use_voice_note": {
+      "key": "time_use_voice_note",
+      "name": "time_use_voice_note",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_prompt"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "AUDIO",
+      "recording": {
+        "src": "CONSTANT",
+        "type": "FILE",
+        "value": "T-10677.K-spec__time_use_voice_note.R-14d4m33l9m3oll4p.m4a"
+      },
+      "description": "time_use_voice_note"
     },
     "activity_time_prompt": {
       "next": {
@@ -917,7 +934,9 @@
     "respondent-background",
     "hindi"
   ],
-  "files": {},
+  "files": {
+    "spec__time_use_voice_note": "T-10677.K-spec__time_use_voice_note.R-14d4m33l9m3oll4p.m4a"
+  },
   "taskType": "MANUAL",
   "allowEdit": true,
   "description": "Baseline Survey: Respondent background",
