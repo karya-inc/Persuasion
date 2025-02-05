@@ -284,6 +284,7 @@
     "hindi"
   ],
   "files": {},
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "surveySpec": {
@@ -353,15 +354,15 @@
   "enableTestTask": false,
   "surveyAvailable": true,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Baseline Survey: Other beliefs",
   "tutorialAvailable": false,
   "customIntroEnabled": false,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 10000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

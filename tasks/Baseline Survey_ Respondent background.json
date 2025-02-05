@@ -937,6 +937,7 @@
   "files": {
     "spec__time_use_voice_note": "T-10677.K-spec__time_use_voice_note.R-14d4m33l9m3oll4p.m4a"
   },
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "description": "Baseline Survey: Respondent background",
@@ -948,15 +949,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Baseline Survey: Respondent background",
   "tutorialAvailable": false,
   "customIntroEnabled": false,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 10000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

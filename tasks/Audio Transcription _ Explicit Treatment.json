@@ -83,6 +83,7 @@
     "tutorial_spec__tutorial_video_segmentation": "T-10683.K-tutorial_spec__tutorial_video_segmentation.R-1s1hjzizat16kn13.mp4",
     "tutorial_spec__tutorial_video_transcription": "T-10683.K-tutorial_spec__tutorial_video_transcription.R-02xop1hcbda4fysr.mp4"
   },
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "introSpec": {
@@ -193,15 +194,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Audio Transcription : Explicit Treatment",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 10000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

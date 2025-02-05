@@ -88,6 +88,7 @@
   "files": {
     "tutorial_spec__tutorial_video": "T-10681.K-tutorial_spec__tutorial_video.R-7timbx444uu2qint.mp4"
   },
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "introSpec": {
@@ -249,15 +250,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Voice Recording: Latent Treatment",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 732,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

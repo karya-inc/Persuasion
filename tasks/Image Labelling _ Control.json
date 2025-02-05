@@ -103,6 +103,7 @@
     "control"
   ],
   "files": {},
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "introSpec": {
@@ -196,15 +197,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Image Labelling : Control",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 3600,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

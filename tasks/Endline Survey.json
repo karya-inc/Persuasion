@@ -1296,6 +1296,7 @@
     "endline-survey"
   ],
   "files": {},
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "description": "Endline Survey",
@@ -1307,15 +1308,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Endline Survey",
   "tutorialAvailable": false,
   "customIntroEnabled": false,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 30000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

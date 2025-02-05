@@ -951,7 +951,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "क्या आपकी <b>माँ</b> को अपने लिए कपड़े खरीदने के लिए किसी सदस्य से <b>या आपसे</b> अनुमति लेनी होती है?"
+        "value": "क्या आपकी <b>माँ/b> को अपने लिए कपड़े खरीदने के लिए किसी सदस्य से <b>या आपसे</b>  अनुमति लेनी होती है?"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT"
@@ -965,6 +965,7 @@
     "hindi"
   ],
   "files": {},
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "description": "Baseline Survey: Social media beliefs and Women's Agency",
@@ -976,15 +977,15 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT]Baseline Survey: Social media beliefs and Women's Agency",
   "tutorialAvailable": false,
   "customIntroEnabled": false,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 10000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }

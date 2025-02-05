@@ -222,6 +222,7 @@
     "voice-recording-evaluation"
   ],
   "files": {},
+  "referral": {},
   "taskType": "MANUAL",
   "allowEdit": true,
   "introSpec": {
@@ -331,15 +332,15 @@
   "enableTestTask": false,
   "surveyAvailable": true,
   "isValidationTask": false,
-  "reassignRejected": false,
   "outputDatasetName": "[OUT] Voice Recording: Subjective Evaluation",
   "tutorialAvailable": false,
   "customIntroEnabled": true,
   "requiresValidation": false,
+  "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
   "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
-  "maxReassignmentsPerUser": 1,
+  "baseCreditsPerMicrotask": 6000,
   "bonusCreditsPerMicrotask": 0,
-  "requireRepeatingMicrotask": false
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
 }
