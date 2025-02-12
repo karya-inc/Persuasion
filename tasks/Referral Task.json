@@ -1,0 +1,368 @@
+{
+  "name": "Referral Task",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "interested_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "interested_input": {
+      "key": "interested_input",
+      "name": "interested_input",
+      "next": {
+        "key": "interested",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "BOOLEAN",
+        "options": {
+          "true": "referred_person_prompt",
+          "false": "end"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "BOOLEAN",
+      "selected": {
+        "key": "interested",
+        "type": "BOOLEAN"
+      },
+      "true_label": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हाँ"
+      },
+      "description": "interested_input",
+      "false_label": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "नहीं"
+      }
+    },
+    "refer_wife_input": {
+      "key": "refer_wife_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "refer_wife_input",
+      "next": {
+        "key": "refer_wife",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "हाँ": "wife_contact_details_prompt",
+          "नहीं": "end",
+          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।": "end"
+        },
+        "componentKey": "__current__"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हाँ",
+          "नहीं",
+          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।"
+        ]
+      },
+      "selected": {
+        "key": "refer_wife",
+        "type": "STRING_ARRAY"
+      },
+      "description": "refer_wife_input"
+    },
+    "interested_prompt": {
+      "key": "interested_prompt",
+      "name": "interested_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "interested_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हम KARYA में और महिलाएँ जोड़ना चाह रहे हैं | क्या आप अपनी किसी महिला पारिवारिक सदस्य/रिश्तेदार को Karya कार्यकर्ता के रूप में आवेदन करने की अनुमति/प्रोत्साहित करने के लिए तैयार हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "interested_prompt"
+    },
+    "refer_wife_prompt": {
+      "key": "refer_wife_prompt",
+      "name": "refer_wife_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "refer_wife_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आप अपनी पत्नी को Karya वर्कपूल में जोड़ने के लिए सिफारिश करना चाहेंगे?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "refer_wife_prompt"
+    },
+    "referred_person_input": {
+      "key": "referred_person_input",
+      "name": "referred_person_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referred_person_relationship_prompt"
+      },
+      "text": {
+        "key": "referred_person_name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "referred_person_input"
+    },
+    "referred_person_prompt": {
+      "key": "referred_person_prompt",
+      "name": "referred_person_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referred_person_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "जिस महिला को आप सुझा रहे हैं, उसका पूरा नाम लिखें"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "referred_person_prompt"
+    },
+    "wife_contact_details_input": {
+      "key": "wife_contact_details_input",
+      "name": "wife_contact_details_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "key": "wife_contact",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "type": {
+        "src":"CONSTANT",
+        "type":"ENUM",
+        "value":"INTEGER",
+        "options": {
+          "INTEGER":"INTEGER",
+          "DECIMAL":"DECIMAL",
+          "TEXT":"TEXT"
+        }
+      },
+      "max_length": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10
+      },
+      "min_length": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10
+      },
+      "description": "wife_contact_details_input"
+    },
+    "wife_contact_details_prompt": {
+      "key": "wife_contact_details_prompt",
+      "name": "wife_contact_details_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_contact_details_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " कृपया उनका फोन नंबर दें। ध्यान दें कि हम उनसे संपर्क कर सकते हैं ताकि उनके बारे में जानकारी लेकर उन्हें वर्कर पूल में जोड़ सकें"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_contact_details_prompt"
+    },
+    "referred_person_relationship_input": {
+      "key": "referred_person_relationship_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "referred_person_relationship_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referred_person_contact_details_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "पत्नी",
+          "माँ",
+          "बहन",
+          "बेटी",
+          "कज़िन (चचेरी/ममेरी बहन)",
+          "बुआ/मौसी/चाची",
+          "अन्य रिश्तेदार"
+        ]
+      },
+      "selected": {
+        "key": "referred_person_relationship",
+        "type": "STRING_ARRAY"
+      },
+      "description": "referred_person_relationship_input"
+    },
+    "referred_person_relationship_prompt": {
+      "key": "referred_person_relationship_prompt",
+      "name": "referred_person_relationship_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referred_person_relationship_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका उनसे रिश्ता क्या है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "referred_person_relationship_prompt"
+    },
+    "referred_person_contact_details_input": {
+      "key": "referred_person_contact_details_input",
+      "name": "referred_person_contact_details_input",
+      "next": {
+        "key": "referred_person_relationship",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "बहन": "refer_wife_prompt",
+          "माँ": "refer_wife_prompt",
+          "बेटी": "refer_wife_prompt",
+          "पत्नी": "end",
+          "बुआ/मौसी/चाची": "refer_wife_prompt",
+          "अन्य रिश्तेदार": "refer_wife_prompt",
+          "कज़िन (चचेरी/ममेरी बहन)": "refer_wife_prompt"
+        },
+        "componentKey": "referred_person_relationship_input"
+      },
+      "text": {
+        "key": "referred_person_contact",
+        "type": "STRING"
+      },
+      "type": {
+        "src":"CONSTANT",
+        "type":"ENUM",
+        "value":"INTEGER",
+        "options": {
+          "INTEGER":"INTEGER",
+          "DECIMAL":"DECIMAL",
+          "TEXT":"TEXT"
+        }
+      },
+      "max_length": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10
+      },
+      "min_length": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 10
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "referred_person_contact_details_input"
+    },
+    "referred_person_contact_details_prompt": {
+      "key": "referred_person_contact_details_prompt",
+      "name": "referred_person_contact_details_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "referred_person_contact_details_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " कृपया उनका फोन नंबर दें। ध्यान दें कि हम उनसे संपर्क कर सकते हैं ताकि उनके बारे में जानकारी लेकर उन्हें वर्कर पूल में जोड़ सकें"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "referred_person_contact_details_prompt"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "referral-task",
+    "__main-task__",
+    "__main-task__"
+  ],
+  "files": {},
+  "referral": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "description": "Referral Task",
+  "display_name": "Referral Task",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": false,
+  "isValidationTask": false,
+  "outputDatasetName": "[OUT] Referral Task",
+  "tutorialAvailable": false,
+  "customIntroEnabled": false,
+  "requiresValidation": false,
+  "createTaskAssignment": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "baseCreditsPerMicrotask": 0,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
+}

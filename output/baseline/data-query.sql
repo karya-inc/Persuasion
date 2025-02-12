@@ -31,6 +31,7 @@ SELECT
     baseline->'10677'->>'last_name' AS baseline_last_name,
     baseline->'10677'->>'sleep_at' AS baseline_sleep_at,
     baseline->'10677'->>'wake_up_at' AS baseline_wake_up_at,
+    baseline->'10677'->>'daily_activities' AS baseline_daily_activities,
     baseline->'10677'->>'number_of_son' AS baseline_number_of_son,
     baseline->'10677'->>'number_of_daughter' AS baseline_number_of_daughter,
     baseline->'10677'->>'own_education' AS baseline_own_education,
