@@ -1,0 +1,12 @@
+Consent: NA
+Baseline: 300
+	- Respondent's BG - 100
+	- Social Media Belief & Women's Agency - 100
+	- Other Beliefs - 100
+Voice Annotation: 600
+Transcription: 900
+Image Labeling/Annotation: 900
+Subjective Evaluation: 600 
+Endline: 300
+
+Total: 3600
