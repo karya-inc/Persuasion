@@ -712,16 +712,6 @@
     },
     "comprehension_check_input": {
       "key": "comprehension_check_input",
-      "max": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "min": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
       "name": "comprehension_check_input",
       "next": {
         "src": "CONSTANT",
@@ -729,23 +719,10 @@
         "value": "end"
       },
       "ctype": "USER",
-      "dtype": "MCQ",
-      "options": {
-        "src": "CONSTANT",
-        "type": "STRING_ARRAY",
-        "value": [
-          "हाँ",
-          "नहीं"
-        ]
-      },
-      "multiple": {
-        "src": "CONSTANT",
-        "type": "BOOLEAN",
-        "value": false
-      },
-      "selected": {
-        "key": "persuade_opinions",
-        "type": "STRING_ARRAY"
+      "dtype": "TEXT",
+      "text": {
+        "type":"STRING",
+        "key":"comprehension_check_answer"
       }
     },
     "expensive_purchase_prompt": {
@@ -775,7 +752,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": " क्या आपको लगता है कि इस ऐप पर आपको पिछले महीने दिए गए कार्य सीधे आपके विचारों को बदलने की कोशिश कर रहे थे?"
+        "value": "आपके विचार में, इस महीने आपने जो कार्य पूरे किए और जो सर्वेक्षण भरे, उनका उद्देश्य क्या था?"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT"
