@@ -75,7 +75,8 @@
         "options": {
           "हाँ": "wife_contact_details_prompt",
           "नहीं": "end",
-          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।": "end"
+          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।": "end",
+          "वह पहले से ही कार्य में काम करती है।": "end"
         },
         "componentKey": "__current__"
       },
@@ -87,7 +88,8 @@
         "value": [
           "हाँ",
           "नहीं",
-          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।"
+          "मैं अविवाहित हूँ / मेरी पत्नी नहीं है।",
+          "वह पहले से ही कार्य में काम करती है।"
         ]
       },
       "selected": {
@@ -107,7 +109,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "हम KARYA में और महिलाएँ जोड़ना चाह रहे हैं | क्या आप अपनी किसी महिला पारिवारिक सदस्य/रिश्तेदार को Karya कार्यकर्ता के रूप में आवेदन करने की अनुमति/प्रोत्साहित करने के लिए तैयार हैं?"
+        "value": "हम KARYA में और <b>महिलाएँ</b> जोड़ना चाह रहे हैं | क्या आप अपनी किसी महिला पारिवारिक सदस्य/रिश्तेदार को Karya कार्यकर्ता के रूप में आवेदन करने की अनुमति/प्रोत्साहित करने के लिए तैयार हैं?"
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -175,18 +177,18 @@
         "key": "wife_contact",
         "type": "STRING"
       },
-      "ctype": "USER",
-      "dtype": "TEXT",
       "type": {
-        "src":"CONSTANT",
-        "type":"ENUM",
-        "value":"INTEGER",
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER",
         "options": {
-          "INTEGER":"INTEGER",
-          "DECIMAL":"DECIMAL",
-          "TEXT":"TEXT"
+          "TEXT": "TEXT",
+          "DECIMAL": "DECIMAL",
+          "INTEGER": "INTEGER"
         }
       },
+      "ctype": "USER",
+      "dtype": "TEXT",
       "max_length": {
         "src": "CONSTANT",
         "type": "INT",
@@ -296,15 +298,17 @@
         "type": "STRING"
       },
       "type": {
-        "src":"CONSTANT",
-        "type":"ENUM",
-        "value":"INTEGER",
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER",
         "options": {
-          "INTEGER":"INTEGER",
-          "DECIMAL":"DECIMAL",
-          "TEXT":"TEXT"
+          "TEXT": "TEXT",
+          "DECIMAL": "DECIMAL",
+          "INTEGER": "INTEGER"
         }
       },
+      "ctype": "USER",
+      "dtype": "TEXT",
       "max_length": {
         "src": "CONSTANT",
         "type": "INT",
@@ -315,8 +319,6 @@
         "type": "INT",
         "value": 10
       },
-      "ctype": "USER",
-      "dtype": "TEXT",
       "description": "referred_person_contact_details_input"
     },
     "referred_person_contact_details_prompt": {
