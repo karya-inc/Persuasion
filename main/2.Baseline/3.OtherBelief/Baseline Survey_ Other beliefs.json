@@ -131,7 +131,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "emotion_test_one"
+        "value": "end"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -272,122 +272,6 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "income_inequality_factor_prompt"
-    },
-    "emotion_test_one": {
-      "key": "emotion_test_one",
-      "name": "emotion_test_one",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "emotion_test_one_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "इन टास्क्स को करने के बाद आपका मूड कैसा था?"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "emotion_test_one"
-    },
-    "emotion_test_one_input": {
-      "key": "emotion_test_one_input",
-      "max": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "min": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "name": "emotion_test_one_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "emotion_test_two"
-      },
-      "ctype": "USER",
-      "dtype": "MCQ",
-      "options": {
-        "src": "CONSTANT",
-        "type": "STRING_ARRAY",
-        "value": [
-          "😀 अच्छा (Good)",
-          "🙂 ठीक-ठाक (Okay)",
-          "😐 थोड़ा थका हुआ (A bit tired)",
-          "🙁 मन नहीं लग रहा था (Didn’t feel good)"
-        ]
-      },
-      "multiple": {
-        "src": "CONSTANT",
-        "type": "BOOLEAN",
-        "value": false
-      },
-      "selected": {
-        "key": "emotion_test_one",
-        "type": "STRING_ARRAY"
-      },
-      "description": "emotion_test_one_input"
-    },
-    "emotion_test_two": {
-      "key": "emotion_test_two",
-      "name": "emotion_test_two",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "emotion_test_two_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "अगर आपको इस हफ्ते ऐप पर काम का अनुभव एक शब्द में बताना हो, तो कौन-सा सबसे सही लगेगा?"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "emotion_test_two"
-    },
-    "emotion_test_two_input": {
-      "key": "emotion_test_two_input",
-      "max": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "min": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "name": "emotion_test_two_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "end"
-      },
-      "ctype": "USER",
-      "dtype": "MCQ",
-      "options": {
-        "src": "CONSTANT",
-        "type": "STRING_ARRAY",
-        "value": [
-          "[1] जैसा हर हफ्ते होता है",
-          "[2] थोड़ा अलग/दिलचस्प",
-          "[3] थोड़ा भारी-सा लगा",
-          "[4] थोड़ा चिढ़चिढ़ा लगा"
-        ]
-      },
-      "multiple": {
-        "src": "CONSTANT",
-        "type": "BOOLEAN",
-        "value": false
-      },
-      "selected": {
-        "key": "emotion_test_two",
-        "type": "STRING_ARRAY"
-      },
-      "description": "emotion_test_two_input"
     }
   },
   "tags": [

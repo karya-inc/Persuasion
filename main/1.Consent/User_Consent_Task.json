@@ -120,6 +120,12 @@
       "description": "consent_text"
     }
   },
+  "sequence": [
+    "2363",
+    "2352",
+    "2353",
+    "2354"
+  ],
   "description": "User Consent Task",
   "instruction": "User Consent Task",
   "display_name": "User Consent Task",
