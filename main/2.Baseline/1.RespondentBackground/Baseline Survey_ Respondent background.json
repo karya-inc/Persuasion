@@ -32,7 +32,7 @@
         "value": "last_name_prompt"
       },
       "text": {
-        "key": "name",
+        "key": "first_name",
         "type": "STRING"
       },
       "ctype": "USER",
@@ -65,7 +65,7 @@
         "value": "birthplace_state_prompt"
       },
       "text": {
-        "key": "name",
+        "key": "last_name",
         "type": "STRING"
       },
       "ctype": "USER",
