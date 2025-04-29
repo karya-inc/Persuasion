@@ -1,0 +1,481 @@
+{
+  "name": "Baseline Survey: Other beliefs",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "task_flow": {
+      "key": "task_flow",
+      "name": "task_flow",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "statement_one"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप इस वाक्य से कितने सहमत या असहमत हैं:"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "context/instructions to next set of microtasks"
+    },
+    "statement_one": {
+      "key": "statement_one",
+      "name": "statement_one",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "statement_one_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": " \"अशोक पोस्ट ऑफिस में नौकरी करता है। उसकी पत्नी लीला एक कपड़े की फैक्ट्री में काम करती है। चूंकि लीला नौकरी कर रही है, इसलिए, अशोक अपने घर चलाने की जिम्मेदारी निभाने में असफल रहा है।\""
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "statement_one"
+    },
+    "statement_two": {
+      "key": "statement_two",
+      "name": "statement_two",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "statement_two_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप इस वाक्य से कितने सहमत या असहमत हैं: \"चूँकि लीला एक कामकाजी महिला है, इसलिए वह एक पत्नी/माँ के रूप में अपनी ज़िम्मेदारी को नज़रअंदाज कर रही होगी।\""
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "statement_two"
+    },
+    "statement_one_input": {
+      "key": "statement_one_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "statement_one_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "statement_two"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह से सहमत हूँ",
+          "मैं  कुछ हद तक सहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह से असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "statement_one",
+        "type": "STRING_ARRAY"
+      },
+      "description": "statement_one_input"
+    },
+    "statement_two_input": {
+      "key": "statement_two_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "statement_two_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "emotion_test_one"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह से सहमत हूँ",
+          "मैं  कुछ हद तक सहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह से असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "statement_two_input",
+        "type": "STRING_ARRAY"
+      },
+      "description": "statement_two_input"
+    },
+    "income_inequality_input": {
+      "key": "income_inequality_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "income_inequality_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_factor_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "मैं पूरी तरह सहमत हूँ",
+          "मैं कुछ हद तक सहमत हूँ",
+          "मैं कुछ हद तक असहमत हूँ",
+          "मैं पूरी तरह असहमत हूँ"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "income_inequality",
+        "type": "STRING_ARRAY"
+      },
+      "description": "income_inequality_input"
+    },
+    "income_inequality_prompt": {
+      "key": "income_inequality_prompt",
+      "name": "income_inequality_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप इस वाक्य से कितने सहमत या असहमत हैं: \"आय की असमानता आज भारत में एक गंभीर समस्या है\"?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "income_inequality_prompt"
+    },
+    "income_inequality_factor_input": {
+      "key": "income_inequality_factor_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "income_inequality_factor_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "task_flow"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "शिक्षा की कमी",
+          "भ्रष्टाचार",
+          "कानूनों की कमी",
+          "जाति, धर्म या लिंग के आधार पर भेदभाव",
+          "नौकरी के मौके की कमी"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "income_inequality_factor",
+        "type": "STRING_ARRAY"
+      },
+      "description": "income_inequality_factor_input"
+    },
+    "income_inequality_factor_prompt": {
+      "key": "income_inequality_factor_prompt",
+      "name": "income_inequality_factor_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "income_inequality_factor_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके अनुसार, भारत में आर्थिक असमानता का सबसे बड़ा कारण क्या है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "income_inequality_factor_prompt"
+    },
+    "emotion_test_one": {
+      "key": "emotion_test_one",
+      "name": "emotion_test_one",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "emotion_test_one_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इन टास्क्स को करने के बाद आपका मूड कैसा था?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "emotion_test_one"
+    },
+    "emotion_test_one_input": {
+      "key": "emotion_test_one_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "emotion_test_one_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "emotion_test_two"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "😀 अच्छा (Good)",
+          "🙂 ठीक-ठाक (Okay)",
+          "😐 थोड़ा थका हुआ (A bit tired)",
+          "🙁 मन नहीं लग रहा था (Didn’t feel good)"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "emotion_test_one",
+        "type": "STRING_ARRAY"
+      },
+      "description": "emotion_test_one_input"
+    },
+    "emotion_test_two": {
+      "key": "emotion_test_two",
+      "name": "emotion_test_two",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "emotion_test_two_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अगर आपको इस हफ्ते ऐप पर काम का अनुभव एक शब्द में बताना हो, तो कौन-सा सबसे सही लगेगा?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "emotion_test_two"
+    },
+    "emotion_test_two_input": {
+      "key": "emotion_test_two_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "emotion_test_two_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "[1] जैसा हर हफ्ते होता है",
+          "[2] थोड़ा अलग/दिलचस्प",
+          "[3] थोड़ा भारी-सा लगा",
+          "[4] थोड़ा चिढ़चिढ़ा लगा"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "emotion_test_two",
+        "type": "STRING_ARRAY"
+      },
+      "description": "emotion_test_two_input"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "baseline-survey",
+    "other-beliefs",
+    "hindi"
+  ],
+  "files": {},
+  "referral": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "surveySpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "thankyou_note"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "thankyou_note": {
+      "key": "thankyou_note",
+      "name": "thankyou_note",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "next_task_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इस कार्य को पूरा करने के लिए धन्यवाद!"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "thankyou_note"
+    },
+    "next_task_prompt": {
+      "key": "next_task_prompt",
+      "name": "next_task_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "कृपया कल वापस आकर अपने सप्ताह के सौंपे गए कार्यों पर काम करें!"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "next_task_prompt"
+    }
+  },
+  "description": "Baseline Survey: Other beliefs",
+  "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
+  "display_name": "अन्य मान्यताएँ",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": true,
+  "isValidationTask": false,
+  "outputDatasetName": "[OUT] Baseline Survey: Other beliefs",
+  "tutorialAvailable": false,
+  "customIntroEnabled": false,
+  "requiresValidation": false,
+  "createTaskAssignment": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
+}

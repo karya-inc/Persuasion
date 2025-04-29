@@ -1,0 +1,1153 @@
+{
+  "name": "Baseline Survey: Respondent background",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "first_name_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "first_name_input": {
+      "key": "first_name_input",
+      "name": "first_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_prompt"
+      },
+      "text": {
+        "key": "name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "first_name_input"
+    },
+    "first_name_prompt": {
+      "key": "first_name_prompt",
+      "name": "first_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "first_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "पहला नाम"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "first_name_prompt"
+    },
+    "last_name_input": {
+      "key": "last_name_input",
+      "name": "last_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_prompt"
+      },
+      "text": {
+        "key": "name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "last_name_input"
+    },
+    "last_name_prompt": {
+      "key": "last_name_prompt",
+      "name": "last_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "उपनाम"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "last_name_prompt"
+    },
+    "wake_at_input": {
+      "key": "wake_at_input",
+      "name": "wake_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "wake_up_at",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "value": "INTEGER",
+        "type": "ENUM"
+      },
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "min": 0,
+            "max": 23
+          },
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      },
+      "description": "wake_at_input"
+    },
+    "sleep_at_input": {
+      "key": "sleep_at_input",
+      "name": "sleep_at_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "sleep_at",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "value": "INTEGER",
+        "type": "ENUM"
+      },
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "min": 0,
+            "max": 23
+          },
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      },
+      "description": "sleep_at_input"
+    },
+    "wake_at_prompt": {
+      "key": "wake_at_prompt",
+      "name": "wake_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wake_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप सुबह कितने बजे उठते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wake_at_prompt"
+    },
+    "wife_job_input": {
+      "key": "wife_job_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_job_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_education_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हां",
+          "नहीं"
+        ]
+      },
+      "selected": {
+        "key": "wife_job",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_job_input"
+    },
+    "sleep_at_prompt": {
+      "key": "sleep_at_prompt",
+      "name": "sleep_at_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप रात को कितने बजे सोते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "sleep_at_prompt"
+    },
+    "wife_job_prompt": {
+      "key": "wife_job_prompt",
+      "name": "wife_job_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_job_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अगर शादीशुदा हैं, तो क्या आपकी पत्नी काम करती हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_job_prompt"
+    },
+    "son_number_input": {
+      "key": "son_number_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 20
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 0
+      },
+      "name": "son_number_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daughter_number_prompt"
+      },
+      "text": {
+        "key": "number_of_son",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "son_number_input"
+    },
+    "son_number_prompt": {
+      "key": "son_number_prompt",
+      "name": "son_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "son_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके कितने बेटे हैं? यदि आपके बेटे नहीं हैं, तो आप '0' टाइप कर सकते हैं।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "son_number_prompt"
+    },
+    "time_use_prompt_1": {
+      "key": "time_use_prompt_1",
+      "name": "time_use_prompt_1",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "sleep_at_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "कृपया याद करें कि आप आम तौर पर दिन में किन काम-काजों में समय बिताते हैं। हमें बताइए कि आप अपना समय इन गतिविधियों में कितना खर्च करते हैं - नींद, पैसा कमाने वाले काम, घर के काम (जिनसे पैसा नहीं मिलता), बच्चों की देखभाल और मनोरंजन। बिल्कुल सटीक नंबर की जरूरत नहीं है; आप बस करीब-करीब कितना समय इन कामों में लगाते हैं, वो बता दीजिए।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "time_use_prompt_1"
+    },
+    "daily_activity_mcq": {
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "next": {
+        "key": "daily_activity",
+        "src": "ITER",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "default": "activity_time_prompt",
+          "रात को सो जाना (दिन समाप्त)": "end"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "तैयार होना/नहाना-धोना",
+          "घर का काम (खाना बनाना, सफाई करना, पानी भरना, बुजुर्गों का ख्याल रखना इत्यादि)",
+          "सुबह का नाश्ता",
+          "आय अर्जित करने वाला काम/नौकरी",
+          "अपने खेत पर काम",
+          "अपने व्यवसाय/व्यापार/दुकान पर काम",
+          "दोपहर का खाना",
+          "रात का खाना",
+          "आराम करना/परिवार के साथ समय बिताना",
+          "टीवी देखना/व्हाट्सऐप/फोन देखना",
+          "रात को सो जाना (दिन समाप्त)"
+        ]
+      },
+      "selected": {
+        "key": "daily_activity",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "activity_time_input": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "next_activity_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "activity_time",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__ घंटे: __2__ मिनट"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "value": "INTEGER",
+        "type": "ENUM"
+      },
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "min": 0,
+            "max": 23
+          },
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "daily_activity_loop": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_mcq"
+      },
+      "ctype": "LOOP",
+      "ltype": "WHILE",
+      "output": {
+        "key": "daily_activities",
+        "type": "ARRAY"
+      },
+      "condition": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": "true"
+      }
+    },
+    "own_education_input": {
+      "key": "own_education_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "own_education_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_education_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "12+"
+        ]
+      },
+      "selected": {
+        "key": "own_education",
+        "type": "STRING_ARRAY"
+      },
+      "description": "own_education_input"
+    },
+    "activity_time_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "activity_time_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपने इस गतिविधि पर कितना समय बिताया?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "marital_status_input": {
+      "key": "marital_status_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "marital_status_input",
+      "next": {
+        "key": "marital_status",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING_ARRAY",
+        "options": {
+          "default": "children_number_prompt",
+          "शादी शुदा": "wife_job_prompt"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "शादी शुदा",
+          "कभी शादी नहीं की",
+          "अलग रहते हैं या तलाक",
+          "अन्य"
+        ]
+      },
+      "selected": {
+        "key": "marital_status",
+        "type": "STRING_ARRAY"
+      },
+      "description": "marital_status_input"
+    },
+    "next_activity_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी अगली गतिविधि क्या थी?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "own_education_prompt": {
+      "key": "own_education_prompt",
+      "name": "own_education_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_education_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपने किस कक्षा तक पढ़ाई की है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "own_education_prompt"
+    },
+    "own_occupation_input": {
+      "key": "own_occupation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "own_occupation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_occupation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "प्रशासनिक/ कार्यालय कार्य",
+          "कृषि/ खेती",
+          "कारीगरी/ दर्जी का काम",
+          "प्लंबिंग/ बिजली का काम",
+          "निर्माण/ शारीरिक श्रम",
+          "छोटे व्यवसाय का स्वामित्व",
+          "घरेलू कार्य",
+          "मनरेगा",
+          "बेरोजगार"
+        ]
+      },
+      "selected": {
+        "key": "own_occupation",
+        "type": "STRING_ARRAY"
+      },
+      "description": "own_occupation_input"
+    },
+    "wife_education_input": {
+      "key": "wife_education_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_education_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_occupation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "12+"
+        ]
+      },
+      "selected": {
+        "key": "wife_education",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_education_input"
+    },
+    "children_number_input": {
+      "key": "children_number_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 20
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 0
+      },
+      "name": "children_number_input",
+      "next": {
+        "key": "no_of_children",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING",
+        "options": {
+          "0": "time_use_prompt_1",
+          "default": "son_number_prompt"
+        }
+      },
+      "text": {
+        "key": "no_of_children",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "children_number_input"
+    },
+    "youngest_child_age_prompt": {
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके सबसे छोटे बच्चे की उम्र क्या है?"
+      },
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_age_input"
+      }
+    },
+    "youngest_child_age_input": {
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "youngest_child_age_input",
+      "key": "youngest_child_age_input",
+      "name": "youngest_child_age_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_under_age_two_prompt"
+      },
+      "text": {
+        "key": "youngest_child_age",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      }
+    },
+    "children_number_under_age_two_prompt": {
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इस घर में दो साल से कम उम्र के कितने बच्चे रहते हैं?"
+      },
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_under_age_two_input"
+      }
+    },
+    "children_number_under_age_two_input": {
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "children_number_under_age_two_input",
+      "key": "children_number_under_age_two_input",
+      "name": "children_number_under_age_two_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_gender_prompt"
+      },
+      "text": {
+        "key": "children_number_under_age_two",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      }
+    },
+    "youngest_child_gender_prompt": {
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका सबसे छोटा बच्चा लड़का है या लड़की?"
+      },
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_gender_input"
+      }
+    },
+    "youngest_child_gender_input": {
+      "key": "youngest_child_gender_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "youngest_child_gender_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "time_use_prompt_1"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "लड़का",
+          "लड़की"
+        ]
+      },
+      "selected": {
+        "key": "youngest_child_gender",
+        "type": "STRING_ARRAY"
+      },
+      "description": "youngest_child_gender_input"
+    },
+    "daily_activity_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daily_activity_loop"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "सुबह उठने के बाद आप आम तौर पर क्या करते हैं? [उदाहरणों के आधार पर नीचे दिए गए विकल्पों में से एक विकल्प चुनें]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "daughter_number_input": {
+      "key": "daughter_number_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 20
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 0
+      },
+      "name": "daughter_number_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_age_prompt"
+      },
+      "text": {
+        "key": "number_of_daughter",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "daughter_number_input"
+    },
+    "marital_status_prompt": {
+      "key": "marital_status_prompt",
+      "name": "marital_status_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "marital_status_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "वैवाहिक स्थिति: "
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "marital_status_prompt"
+    },
+    "own_occupation_prompt": {
+      "key": "own_occupation_prompt",
+      "name": "own_occupation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "own_occupation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप क्या काम करते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "own_occupation_prompt"
+    },
+    "wife_education_prompt": {
+      "key": "wife_education_prompt",
+      "name": "wife_education_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_education_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी पत्नी ने किस कक्षा तक पढ़ाई की है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_education_prompt"
+    },
+    "wife_occupation_input": {
+      "key": "wife_occupation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "wife_occupation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "प्रशासनिक/ कार्यालय कार्य",
+          "कृषि/ खेती",
+          "कारीगरी/ दर्जी का काम",
+          "प्लंबिंग/ बिजली का काम",
+          "निर्माण/ शारीरिक श्रम",
+          "छोटे व्यवसाय का स्वामित्व",
+          "घरेलू कार्य",
+          "मनरेगा",
+          "बेरोजगार"
+        ]
+      },
+      "selected": {
+        "key": "wife_occupation",
+        "type": "STRING_ARRAY"
+      },
+      "description": "wife_occupation_input"
+    },
+    "birthplace_state_input": {
+      "key": "birthplace_state_input",
+      "name": "birthplace_state_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "fetct_district_names_bg"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT_SELECT",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "अंडमान और निकोबार द्वीपसमूह",
+          "अरुणाचल प्रदेश",
+          "असम",
+          "आंध्र प्रदेश",
+          "उत्तर प्रदेश",
+          "उत्तराखंड",
+          "एनसीटी ऑफ़ दिल्ली",
+          "ओडिशा",
+          "कर्नाटक",
+          "केरल",
+          "गुजरात",
+          "गोवा",
+          "चंडीगढ़",
+          "छत्तीसगढ़",
+          "जम्मू कश्मीर",
+          "झारखंड",
+          "तमिलनाडु",
+          "त्रिपुरा",
+          "दमन और दीव",
+          "दादरा और नगर हवेली",
+          "नागालैंड",
+          "पंजाब",
+          "पश्चिम बंगाल",
+          "पुडुचेरी",
+          "बिहार",
+          "मणिपुर",
+          "मध्य प्रदेश",
+          "महाराष्ट्र",
+          "मिज़ोरम",
+          "मेघालय",
+          "राजस्थान",
+          "लक्षद्वीप",
+          "सिक्किम",
+          "हरियाणा",
+          "हिमाचल प्रदेश"
+        ]
+      },
+      "selected": {
+        "key": "birthplace_state",
+        "type": "STRING_ARRAY"
+      },
+      "description": "birthplace_state_input"
+    },
+    "children_number_prompt": {
+      "key": "children_number_prompt",
+      "name": "children_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके कितने बच्चे हैं? यदि आपके बच्चे नहीं हैं, तो आप '0' टाइप कर सकते हैं।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "children_number_prompt"
+    },
+    "daughter_number_prompt": {
+      "key": "daughter_number_prompt",
+      "name": "daughter_number_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "daughter_number_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी कितनी बेटियाँ हैं? यदि आपकी बेटियाँ नहीं हैं, तो आप '0' टाइप कर सकते हैं।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "daughter_number_prompt"
+    },
+    "wife_occupation_prompt": {
+      "key": "wife_occupation_prompt",
+      "name": "wife_occupation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "wife_occupation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी पत्नी क्या काम करती हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "wife_occupation_prompt"
+    },
+    "birthplace_state_prompt": {
+      "key": "birthplace_state_prompt",
+      "name": "birthplace_state_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका जन्म किस राज्य (जैसे बिहार, झारखंड) में हुआ था? टेक्स्ट बॉक्स में सीधे न टाइप करें, तीर पर क्लिक करें और सूची से विकल्प चुनें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "birthplace_state_prompt"
+    },
+    "fetct_district_names_bg": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_district_prompt"
+      },
+      "ctype": "BACKGROUND_LOCAL",
+      "states": {
+        "key": "birthplace_state",
+        "src": "MTA_OUTPUT",
+        "type": "STRING_ARRAY"
+      },
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "{\"अंडमान और निकोबार द्वीपसमूह\":[\"निकोबार\",\"नॉर्थ मिडिल अंडमान\",\"साउथ अंडमान\"],\"अरुणाचल प्रदेश\":[\"तवांग\",\"वेस्ट कामेंग\",\"ईस्ट कामेंग\",\"पापुम पारे\",\"अपर सुबनसिरी\",\"वेस्ट सियांग\",\"ईस्ट सियांग\",\"अपर सियांग\",\"चांगलांग\",\"तिरप\",\"लोअर सुबनसिरी\",\"कुरुंग कुमे\",\"दिबांग वैली\",\"लोअर दिबांग वैली\",\"लोहित\",\"अंजाव\"],\"असम\":[\"कोकराझार\",\"धुबरी\",\"गोलपारा\",\"बारपेटा\",\"मोरीगांव\",\"नागांव\",\"सोनितपुर\",\"लखीमपुर\",\"धेमाजी\",\"तिनसुकिया\",\"डिब्रूगढ़\",\"शिवसागर\",\"जोरहाट\",\"गोलाघाट\",\"कार्बी आंगलोंग\",\"दीमा हासाओ\",\"काछार\",\"करीमगंज\",\"हैलाकांडी\",\"बोंगाईगांव\",\"चिरांग\",\"कामरूप\",\"कामरूप मेट्रोपॉलिटन\",\"नलबाड़ी\",\"बक्सा\",\"दरंग\",\"उदलगुरी\"],\"आंध्र प्रदेश\":[\"आदिलाबाद\",\"निजामाबाद\",\"करीमनगर\",\"मेडक\",\"हैदराबाद\",\"रंगा रेड्डी\",\"महबूबनगर\",\"नलगोंडा\",\"वारंगल\",\"खम्मम\",\"श्रीकाकुलम\",\"विजयनगरम\",\"विशाखापत्तनम\",\"ईस्ट गोदावरी\",\"वेस्ट गोदावरी\",\"कृष्णा\",\"गुंटूर\",\"प्रकाशम\",\"श्री पोट्टि श्रीरामुलु नेल्लोर\",\"वाईएसआर कडप्पा\",\"कुरनूल\",\"अनंतपुर\",\"चित्तूर\"],\"उत्तर प्रदेश\":[\"सहारनपुर\",\"मुजफ्फरनगर\",\"बिजनौर\",\"मुरादाबाद\",\"रामपुर\",\"ज्योतिबा फुले नगर\",\"मेरठ\",\"बागपत\",\"गाज़ियाबाद\",\"गौतम बुद्ध नगर\",\"बुलंदशहर\",\"अलीगढ़\",\"महामाया नगर\",\"मथुरा\",\"आगरा\",\"फिरोजाबाद\",\"मैनपुरी\",\"बदायूं\",\"बरेली\",\"पीलीभीत\",\"शाहजहांपुर\",\"खीरी\",\"सीतापुर\",\"हरदोई\",\"उन्नाव\",\"लखनऊ\",\"रायबरेली\",\"फर्रुखाबाद\",\"कन्नौज\",\"इटावा\",\"औरैया\",\"कानपुर देहात\",\"कानपुर नगर\",\"जालौन\",\"झांसी\",\"ललितपुर\",\"हमीरपुर\",\"महोबा\",\"बांदा\",\"चित्रकूट\",\"फतेहपुर\",\"प्रतापगढ़\",\"कौशांबी\",\"इलाहाबाद\",\"बाराबंकी\",\"फैजाबाद\",\"अम्बेडकर नगर\",\"सुल्तानपुर\",\"बहराइच\",\"श्रावस्ती\",\"बलरामपुर\",\"गोंडा\",\"सिद्धार्थनगर\",\"बस्ती\",\"संत कबीर नगर\",\"महाराजगंज\",\"गोरखपुर\",\"कुशीनगर\",\"देवरिया\",\"आजमगढ़\",\"मऊ\",\"बलिया\",\"जौनपुर\",\"गाज़ीपुर\",\"चंदौली\",\"वाराणसी\",\"संत रविदास नगर भदोही\",\"मिर्जापुर\",\"सोनभद्र\",\"एटा\",\"कांशीराम नगर\"],\"उत्तराखंड\":[\"उत्तरकाशी\",\"चमोली\",\"रुद्रप्रयाग\",\"टिहरी गढ़वाल\",\"देहरादून\",\"गढ़वाल\",\"पिथौरागढ़\",\"बागेश्वर\",\"अल्मोड़ा\",\"चंपावत\",\"नैनीताल\",\"उधम सिंह नगर\",\"हरिद्वार\"],\"एनसीटी ऑफ़ दिल्ली\":[\"नॉर्थ वेस्ट\",\"नॉर्थ\",\"नॉर्थ ईस्ट\",\"ईस्ट\",\"नई दिल्ली\",\"सेंट्रल\",\"वेस्ट\",\"साउथ वेस्ट\",\"साउथ\"],\"ओडिशा\":[\"बरगढ़\",\"झारसुगुड़ा\",\"संबलपुर\",\"देवगढ़\",\"सुंदरगढ़\",\"क्योंझर\",\"मयूरभंज\",\"बालेश्वर\",\"भद्रक\",\"केंद्रपाड़ा\",\"जगतसिंहपुर\",\"कटक\",\"जाजपुर\",\"ढेंकानाल\",\"अनुगुल\",\"नयागढ़\",\"खोरधा\",\"पुरी\",\"गंजाम\",\"गजपति\",\"कंधमाल\",\"बौध\",\"सुवर्णपुर\",\"बलांगीर\",\"नुआपड़ा\",\"कालाहांडी\",\"रायगडा\",\"नबरंगपुर\",\"कोरापुट\",\"मलकानगिरी\"],\"कर्नाटक\":[\"बेलगाम\",\"बागलकोट\",\"बीजापुर\",\"बीदर\",\"रायचूर\",\"कोप्पल\",\"गदग\",\"धारवाड़\",\"उत्तर कन्नड़\",\"हावेरी\",\"बेल्लारी\",\"चित्रदुर्ग\",\"दावणगेरे\",\"शिमोगा\",\"उडुपी\",\"चिकमगलूर\",\"तुमकुर\",\"बेंगलुरु\",\"मांड्या\",\"हासन\",\"दक्षिण कन्नड़\",\"कोडागु\",\"मैसूर\",\"चामराजनगर\",\"गुलबर्गा\",\"यादगीर\",\"कोलार\",\"चिक्कबल्लापुर\",\"बेंगलुरु ग्रामीण\",\"रामनगर\"],\"केरल\":[\"कासरगोड\",\"कन्नूर\",\"वायनाड\",\"कोझिकोड\",\"मलप्पुरम\",\"पलक्कड़\",\"त्रिशूर\",\"एर्नाकुलम\",\"इडुक्की\",\"कोट्टायम\",\"अलप्पुझा\",\"पथनमथिट्टा\",\"कोल्लम\",\"तिरुवनंतपुरम\"],\"गुजरात\":[\"कच्छ\",\"बनासकांठा\",\"पाटन\",\"महेसाणा\",\"साबरकांठा\",\"गांधीनगर\",\"अहमदाबाद\",\"सुरेंद्रनगर\",\"राजकोट\",\"जामनगर\",\"पोरबंदर\",\"जूनागढ़\",\"अमरेली\",\"भावनगर\",\"आनंद\",\"खेड़ा\",\"पंच महल\",\"दाहोद\",\"वडोदरा\",\"नर्मदा\",\"भरूच\",\"द डांग्स\",\"नवसारी\",\"वलसाड\",\"सूरत\",\"तापी\"],\"गोवा\":[\"उत्तरी गोवा\",\"दक्षिण गोवा\"],\"चंडीगढ़\":[\"चंडीगढ़\"],\"छत्तीसगढ़\":[\"कोरिया\",\"सरगुजा\",\"जशपुर\",\"रायगढ़\",\"कोरबा\",\"जांजगीर चांपा\",\"बिलासपुर\",\"कबीरधाम\",\"राजनांदगांव\",\"दुर्ग\",\"रायपुर\",\"महासमुंद\",\"धमतरी\",\"उत्तर बस्तर कांकेर\",\"बस्तर\",\"नारायणपुर\",\"दक्षिण बस्तर दंतेवाड़ा\",\"बीजापुर\"],\"जम्मू कश्मीर\":[\"कुपवाड़ा\",\"बडगाम\",\"लेह लद्दाख\",\"कारगिल\",\"पुंछ\",\"राजौरी\",\"कठुआ\",\"बारामूला\",\"बांदीपोरा\",\"श्रीनगर\",\"गांदरबल\",\"पुलवामा\",\"शोपियां\",\"अनंतनाग\",\"कुलगाम\",\"डोडा\",\"रामबन\",\"किश्तवाड़\",\"उधमपुर\",\"रियासी\",\"जम्मू\",\"सांबा\"],\"झारखंड\":[\"गढ़वा\",\"चतरा\",\"कोडरमा\",\"गिरिडीह\",\"देवघर\",\"गोड्डा\",\"साहिबगंज\",\"पाकुड़\",\"धनबाद\",\"बोकारो\",\"लोहरदगा\",\"पूर्वी सिंहभूम\",\"पलामू\",\"लातेहार\",\"हजारीबाग\",\"रामगढ़\",\"दुमका\",\"जामताड़ा\",\"रांची\",\"खूंटी\",\"गुमला\",\"सिमडेगा\",\"पश्चिमी सिंहभूम\",\"सरायकेला खरसावां\"],\"तमिलनाडु\":[\"तिरुवल्लूर\",\"चेन्नई\",\"कांचीपुरम\",\"वेल्लोर\",\"तिरुवन्नामलई\",\"विल्लुपुरम\",\"सलेम\",\"नामक्कल\",\"इरोड\",\"द नीलगिरि\",\"डिंडीगुल\",\"करूर\",\"तिरुचिरापल्ली\",\"पेरंबलूर\",\"अरियालूर\",\"कडलूर\",\"नागपट्टिनम\",\"तिरुवरूर\",\"तंजावुर\",\"पुदुक्कोट्टई\",\"शिवगंगा\",\"मदुरै\",\"थेनी\",\"विरुधुनगर\",\"रामनाथपुरम\",\"तूतिकोरिन\",\"तिरुनेलवेली\",\"कन्याकुमारी\",\"धर्मपुरी\",\"कृष्णागिरी\",\"कोयंबटूर\",\"तिरुप्पूर\"],\"त्रिपुरा\":[\"पश्चिम त्रिपुरा\",\"दक्षिण त्रिपुरा\",\"धलाई\",\"उत्तर त्रिपुरा\"],\"दमन और दीव\":[\"दीव\",\"दमन\"],\"दादरा और नगर हवेली\":[\"दादरा और नगर हवेली\"],\"नागालैंड\":[\"मोन\",\"मोकोकचुंग\",\"जुन्हेबोटो\",\"वोखा\",\"दीमापुर\",\"फेक\",\"तुएनसांग\",\"लोंगलेनग\",\"किफिरे\",\"कोहिमा\",\"पेरेन\"],\"पंजाब\":[\"गुरदासपुर\",\"कपूरथला\",\"जालंधर\",\"होशियारपुर\",\"शहीद भगत सिंह नगर\",\"फतेहगढ़ साहिब\",\"लुधियाना\",\"मोगा\",\"फिरोजपुर\",\"मुक्तसर\",\"फरीदकोट\",\"भटिंडा\",\"मनसा\",\"पटियाला\",\"अमृतसर\",\"तरनतारन\",\"रूपनगर\",\"साहिबजादा अजीत सिंह नगर\",\"संगरूर\",\"बरनाला\"],\"पश्चिम बंगाल\":[\"दार्जिलिंग\",\"जलपाईगुड़ी\",\"कोच बिहार\",\"उत्तर दिनाजपुर\",\"दक्षिण दिनाजपुर\",\"मालदा\",\"मुर्शिदाबाद\",\"बीरभूम\",\"बर्द्धमान\",\"नदिया\",\"उत्तर चौबीस परगना\",\"हुगली\",\"बांकुड़ा\",\"पुरुलिया\",\"हावड़ा\",\"कोलकाता\",\"दक्षिण चौबीस परगना\",\"पश्चिम मेदिनीपुर\",\"पूर्व मेदिनीपुर\"],\"पुडुचेरी\":[\"यनम\",\"पुडुचेरी\",\"माहे\",\"कराईकल\"],\"बिहार\":[\"पश्चिम चंपारण\",\"पूर्वी चंपारण\",\"शिवहर\",\"सीतामढ़ी\",\"मधुबनी\",\"सुपौल\",\"अररिया\",\"किशनगंज\",\"पूर्णिया\",\"कटिहार\",\"मधेपुरा\",\"सहरसा\",\"दरभंगा\",\"मुजफ्फरपुर\",\"गोपालगंज\",\"सिवान\",\"सारण\",\"वैशाली\",\"समस्तीपुर\",\"बेगूसराय\",\"खगड़िया\",\"भागलपुर\",\"बांका\",\"मुंगेर\",\"लखीसराय\",\"शेखपुरा\",\"नालंदा\",\"पटना\",\"भोजपुर\",\"बक्सर\",\"कैमूर भभुआ\",\"रोहतास\",\"औरंगाबाद\",\"गया\",\"नवादा\",\"जमुई\",\"जहानाबाद\",\"अरवल\"],\"मणिपुर\":[\"सेनापति\",\"तमेंगलोंग\",\"चुराचांदपुर\",\"बिष्णुपुर\",\"थौबाल\",\"इम्फाल पश्चिम\",\"इम्फाल पूर्व\",\"उखरूल\",\"चंदेल\"],\"मध्य प्रदेश\":[\"श्योपुर\",\"मुरैना\",\"भिंड\",\"ग्वालियर\",\"दतिया\",\"शिवपुरी\",\"टीकमगढ़\",\"छतरपुर\",\"पन्ना\",\"सागर\",\"दमोह\",\"सतना\",\"रीवा\",\"उमरिया\",\"नीमच\",\"मंदसौर\",\"रतलाम\",\"उज्जैन\",\"शाजापुर\",\"देवास\",\"धार\",\"इंदौर\",\"पश्चिम निमाड़\",\"बड़वानी\",\"राजगढ़\",\"विदिशा\",\"भोपाल\",\"सीहोर\",\"रायसेन\",\"बैतूल\",\"हरदा\",\"होशंगाबाद\",\"कटनी\",\"जबलपुर\",\"नरसिंहपुर\",\"डिंडोरी\",\"मंडला\",\"छिंदवाड़ा\",\"सिवनी\",\"बालाघाट\",\"गुना\",\"अशोकनगर\",\"शहडोल\",\"अनूपपुर\",\"सीधी\",\"सिंगरौली\",\"झाबुआ\",\"अलीराजपुर\",\"पूर्व निमाड़\",\"बुरहानपुर\"],\"महाराष्ट्र\":[\"नंदुरबार\",\"धुले\",\"जलगांव\",\"बुलढाणा\",\"अकोला\",\"वाशिम\",\"अमरावती\",\"वर्धा\",\"नागपुर\",\"भंडारा\",\"गोंदिया\",\"गडचिरोली\",\"चंद्रपुर\",\"यवतमाल\",\"नांदेड़\",\"हिंगोली\",\"परभणी\",\"जलना\",\"औरंगाबाद\",\"नासिक\",\"ठाणे\",\"मुंबई उपनगर\",\"मुंबई\",\"रायगढ़\",\"पुणे\",\"अहमदनगर\",\"बीड\",\"लातूर\",\"उस्मानाबाद\",\"सोलापुर\",\"सातारा\",\"रत्नागिरी\",\"सिंधुदुर्ग\",\"कोल्हापुर\",\"सांगली\"],\"मिज़ोरम\":[\"ममित\",\"कोलासिब\",\"आइजोल\",\"चंफाई\",\"सेरछिप\",\"लुंगलेई\",\"लोंग्तलई\",\"सइहा\"],\"मेघालय\":[\"पश्चिम गारो हिल्स\",\"पूर्व गारो हिल्स\",\"दक्षिण गारो हिल्स\",\"पश्चिम खासी हिल्स\",\"रीभोई\",\"पूर्व खासी हिल्स\",\"जैंतिया हिल्स\"],\"राजस्थान\":[\"गंगानगर\",\"हनुमानगढ़\",\"बीकानेर\",\"चूरू\",\"झुंझुनू\",\"अलवर\",\"भरतपुर\",\"धौलपुर\",\"करौली\",\"सवाई माधोपुर\",\"दौसा\",\"जयपुर\",\"सीकर\",\"नागौर\",\"जोधपुर\",\"जैसलमेर\",\"बाड़मेर\",\"जालोर\",\"सिरोही\",\"पाली\",\"अजमेर\",\"टोंक\",\"बूंदी\",\"भीलवाड़ा\",\"राजसमंद\",\"डूंगरपुर\",\"बांसवाड़ा\",\"चित्तौड़गढ़\",\"कोटा\",\"बारां\",\"झालावाड़\",\"उदयपुर\",\"प्रतापगढ़\"],\"लक्षद्वीप\":[\"लक्षद्वीप\"],\"सिक्किम\":[\"नॉर्थ डिस्ट्रिक्ट\",\"वेस्ट डिस्ट्रिक्ट\",\"साउथ डिस्ट्रिक्ट\",\"ईस्ट डिस्ट्रिक्ट\"],\"हरियाणा\":[\"पंचकुला\",\"अंबाला\",\"यमुनानगर\",\"कुरुक्षेत्र\",\"कैथल\",\"करनाल\",\"पानीपत\",\"सोनीपत\",\"जींद\",\"फतेहाबाद\",\"सिरसा\",\"हिसार\",\"भिवानी\",\"रोहतक\",\"झज्जर\",\"महेंद्रगढ़\",\"रेवाड़ी\",\"गुरुग्राम\",\"मेवात\",\"फरीदाबाद\",\"पलवल\"],\"हिमाचल प्रदेश\":[\"चंबा\",\"कांगड़ा\",\"लाहौल स्पीति\",\"कुल्लू\",\"मंडी\",\"हमीरपुर\",\"ऊना\",\"बिलासपुर\",\"सोलन\",\"सिरमौर\",\"शिमला\",\"किन्नौर\"]}"
+      },
+      "districts": {
+        "key": "filtered_districts",
+        "type": "STRING_ARRAY"
+      },
+      "function_id": "FETCH_DISTRICT_NAMES"
+    },
+    "birthplace_district_input": {
+      "key": "birthplace_district_input",
+      "name": "birthplace_district_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "marital_status_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT_SELECT",
+      "options": {
+        "key": "filtered_districts",
+        "src": "MTA_OUTPUT",
+        "type": "STRING_ARRAY"
+      },
+      "selected": {
+        "key": "birthplace_district",
+        "type": "STRING_ARRAY"
+      },
+      "description": "birthplace_district_input"
+    },
+    "birthplace_district_prompt": {
+      "key": "birthplace_district_prompt",
+      "name": "birthplace_district_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_district_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका जन्म कौनसे जिले में हुआ था? टेक्स्ट बॉक्स में सीधे न टाइप करें, तीर पर क्लिक करें और सूची से विकल्प चुनें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "birthplace_district_prompt"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "baseline-survey",
+    "respondent-background",
+    "hindi"
+  ],
+  "referral": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "description": "Baseline Survey: Respondent background",
+  "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
+  "display_name": "मूल जानकारी",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": false,
+  "isValidationTask": false,
+  "outputDatasetName": "[OUT] Baseline Survey: Respondent background",
+  "tutorialAvailable": false,
+  "customIntroEnabled": false,
+  "requiresValidation": false,
+  "createTaskAssignment": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
+}

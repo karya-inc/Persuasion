@@ -1,0 +1,623 @@
+{
+  "name": "Baseline Survey: Social media beliefs and Women's Agency",
+  "spec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "frequency_prompt"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    },
+    "frequency_input": {
+      "key": "frequency_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "frequency_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "social_media_impact_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "दिन में कई बार उपयोग करते हैं",
+          "दिन में एक बार उपयोग करते हैं",
+          "सप्ताह में कुछ बार उपयोग करते हैं",
+          "महीने में कुछ बार उपयोग करते हैं",
+          "शायद ही कभी/कभी नहीं उपयोग करते हैं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "social_media_frequency",
+        "type": "STRING_ARRAY"
+      },
+      "description": "frequency_input"
+    },
+    "frequency_prompt": {
+      "key": "frequency_prompt",
+      "name": "frequency_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "frequency_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आप सोशल मीडिया प्लेटफॉर्म (जैसे की: फेसबुक, वटसेप) का कितना उपयोग करते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "frequency_prompt"
+    },
+    "consultation_input": {
+      "key": "consultation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "consultation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "consultation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "alone_friends_input": {
+      "key": "alone_friends_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "alone_friends_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "alone_friends",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "consultation_prompt": {
+      "key": "consultation_prompt",
+      "name": "consultation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या बच्चों की सेहत से जुड़े फैसले लेने के लिए आपकी <b>पत्नी</b> को परिवार के सदस्यों से <b>या आपसे</b> सलाह लेनी पड़ती है? [यदि लागू हो]"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "alone_friends_prompt": {
+      "key": "alone_friends_prompt",
+      "name": "alone_friends_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>पत्नी</b> को दोस्तों से मिलने के लिए अकेले जाने की अनुमति है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "womens_agency_context": {
+      "key": "womens_agency_context",
+      "name": "womens_agency_context",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_prompt"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "हम भारतीय परिवारों में रिश्तों और वित्तीय फैसले लेने की प्रक्रिया को समझने की कोशिश कर रहे हैं। कृपया अपने <b>पत्नी</b> के बारे में निम्नलिखित प्रश्नों के उत्तर दें | अगर आपकी शादी नहीं हुई है, तो अपने भावी जीवनसाथी के हिसाब से जवाब दें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "market_permission_input": {
+      "key": "market_permission_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "market_permission_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "market_permission",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "expensive_purchase_input": {
+      "key": "expensive_purchase_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "expensive_purchase_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "market_permission_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "expensive_purchase",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "market_permission_prompt": {
+      "key": "market_permission_prompt",
+      "name": "market_permission_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "market_permission_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>पत्नी</b> को बाज़ार से सामान खरीदने के लिए परिवार के किसी सदस्य से <b>या आपसे</b> अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "expensive_purchase_prompt": {
+      "key": "expensive_purchase_prompt",
+      "name": "expensive_purchase_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "expensive_purchase_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या कोई महंगी चीज़ (जैसे साइकिल/टीवी) खरीदते समय आपकी <b>पत्नी</b>  की राय ली जाती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "social_media_impact_input": {
+      "key": "social_media_impact_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "social_media_impact_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "womens_agency_context"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "बहुत बुरा असर",
+          "थोड़ा बुरा असर",
+          "कोई असर नहीं",
+          "थोड़ा अच्छा असर",
+          "बहुत अच्छा असर"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "social_media_impact",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "expensive_purchase_m_input": {
+      "key": "expensive_purchase_m_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "expensive_purchase_m_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "expensive_purchase_m",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_input": {
+      "key": "friends_neighborhood_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "friends_neighborhood_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "alone_friends_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "friends_neighborhood",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "social_media_impact_prompt": {
+      "key": "social_media_impact_prompt",
+      "name": "social_media_impact_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "social_media_impact_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "सोशल मीडिया का भारतीय समाज पर क्या असर पड़ता है, आपका क्या मानना है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "social_media_impact_prompt"
+    },
+    "public_transportation_input": {
+      "key": "public_transportation_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "public_transportation_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "consultation_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "public_transportation",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "friends_neighborhood_prompt ": {
+      "key": "friends_neighborhood_prompt ",
+      "name": "friends_neighborhood_prompt ",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>पत्नी</b> को दूसरे मोहल्ले में अपने दोस्तों से मिलने और बात करने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "public_transportation_prompt": {
+      "key": "public_transportation_prompt",
+      "name": "public_transportation_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "public_transportation_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>पत्नी</b> को बस/ट्रेन/ऑटो से कहीं भी जाने की इजाज़त है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "clothing_purchase_permission_input": {
+      "key": "clothing_purchase_permission_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "clothing_purchase_permission_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "friends_neighborhood_prompt "
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "हमेशा",
+          "ज़्यादातर हाँ",
+          "ज़्यादातर नहीं",
+          "कभी नहीं"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "clothing_purchase_permission",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "clothing_purchase_permission_prompt": {
+      "key": "clothing_purchase_permission_prompt",
+      "name": "clothing_purchase_permission_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "clothing_purchase_permission_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "क्या आपकी <b>पत्नी</b> को बाज़ार से सामान खरीदने के लिए परिवार के किसी सदस्य से <b>या आपसे</b> अनुमति लेनी होती है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    }
+  },
+  "tags": [
+    "persuasion",
+    "baseline-survey",
+    "social-media-beliefs",
+    "women's-agency",
+    "hindi"
+  ],
+  "files": {},
+  "referral": {},
+  "taskType": "MANUAL",
+  "allowEdit": true,
+  "description": "Baseline Survey: Social media beliefs and Women's Agency",
+  "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
+  "display_name": "सामाजिक राय",
+  "allowSkipping": false,
+  "requireConfig": false,
+  "enableReferral": false,
+  "enableTestTask": false,
+  "surveyAvailable": false,
+  "isValidationTask": false,
+  "outputDatasetName": "[OUT]Baseline Survey: Social media beliefs and Women's Agency",
+  "tutorialAvailable": false,
+  "customIntroEnabled": false,
+  "requiresValidation": false,
+  "createTaskAssignment": false,
+  "outputGenGranularity": "ASSIGNMENT",
+  "createNewOutputDataset": true,
+  "baseCreditsPerMicrotask": 0,
+  "bonusCreditsPerMicrotask": 0,
+  "requireRepeatingMicrotask": false,
+  "subscribeToReferenceDataset": false
+}
