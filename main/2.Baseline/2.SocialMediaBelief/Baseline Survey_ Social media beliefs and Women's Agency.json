@@ -98,7 +98,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "part_time_wage_prompt"
       },
       "ctype": "USER",
       "dtype": "MCQ",
@@ -120,6 +120,168 @@
       "selected": {
         "key": "consultation",
         "type": "STRING_ARRAY"
+      }
+    },
+    "part_time_wage_prompt": {
+      "key": "part_time_wage_prompt",
+      "name": "part_time_wage_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "part_time_wage_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपकी पत्नी अगर घर से पार्ट-टाइम काम करना चाहें (जैसे ट्यूशन, सिलाई वगैरह), तो आपकी नजर में उनकी कमाई कितनी होनी चाहिए कि आप उसे करने की इजाज़त दें?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "part_time_wage_input": {
+      "key": "part_time_wage_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "part_time_wage_input",
+      "next": {
+        "key": "part_time_wage",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING",
+        "options": {
+          "g) अन्य:": "other_part_time_wage_input",
+          "default": "job_in_neighbourhood_wage_prompt"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "a) करीब ₹2,500",
+          "b) करीब ₹5,000",
+          "c) करीब ₹10,000",
+          "d) ₹10,000 से ₹20,000 के बीच",
+          "f) इसमें मेरी दिलचस्पी/इंटरेस्ट नहीं है",
+          "g) अन्य:"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "part_time_wage",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "other_part_time_wage_input": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "job_in_neighbourhood_wage_prompt"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "other_part_time_wage",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__"
+      }
+    },
+    "job_in_neighbourhood_wage_prompt": {
+      "key": "job_in_neighbourhood_wage_prompt",
+      "name": "job_in_neighbourhood_wage_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "job_in_neighbourhood_wage_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अगर आपकी पत्नी आपके ही मोहल्ले में नौकरी करना चाहें (जैसे स्कूल में पढ़ाना, गारमेंट फैक्टरी में काम वगैरह), तो आपको ऐसा कब ठीक लगेगा? यानी महीने की कमाई कितनी होनी चाहिए कि आप कहें — हाँ, कर लो।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "job_in_neighbourhood_wage_input": {
+      "key": "job_in_neighbourhood_wage_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "job_in_neighbourhood_wage_input",
+      "next": {
+        "key": "job_in_neighbourhood_wage",
+        "src": "MTA_OUTPUT",
+        "type": "REF",
+        "itype": "STRING",
+        "options": {
+          "g) अन्य:": "other_job_in_neighbourhood_wage_input",
+          "default": "end"
+        }
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "a) करीब ₹5,000",
+          "b) करीब ₹10,000",
+          "c) करीब ₹15,000",
+          "d) ₹20,000 से ₹30,000 के बीच",
+          "e) मैं नहीं चाहता कि वो ऐसा कोई काम करें",
+          "g) अन्य:"
+        ]
+      },
+      "multiple": {
+        "src": "CONSTANT",
+        "type": "BOOLEAN",
+        "value": false
+      },
+      "selected": {
+        "key": "job_in_neighbourhood_wage",
+        "type": "STRING_ARRAY"
+      }
+    },
+    "other_job_in_neighbourhood_wage_input": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "USER",
+      "dtype": "FILL_BLANK",
+      "output": {
+        "key": "other_job_in_neighbourhood_wage",
+        "type": "STRING"
+      },
+      "template": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "__1__"
       }
     },
     "alone_friends_input": {
@@ -360,46 +522,6 @@
       },
       "selected": {
         "key": "social_media_impact",
-        "type": "STRING_ARRAY"
-      }
-    },
-    "expensive_purchase_m_input": {
-      "key": "expensive_purchase_m_input",
-      "max": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "min": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "name": "expensive_purchase_m_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "end"
-      },
-      "ctype": "USER",
-      "dtype": "MCQ",
-      "options": {
-        "src": "CONSTANT",
-        "type": "STRING_ARRAY",
-        "value": [
-          "हमेशा",
-          "ज़्यादातर हाँ",
-          "ज़्यादातर नहीं",
-          "कभी नहीं"
-        ]
-      },
-      "multiple": {
-        "src": "CONSTANT",
-        "type": "BOOLEAN",
-        "value": false
-      },
-      "selected": {
-        "key": "expensive_purchase_m",
         "type": "STRING_ARRAY"
       }
     },
