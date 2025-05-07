@@ -23,72 +23,6 @@
       "ctype": "START",
       "description": "First Component of the task specification"
     },
-    "first_name_input": {
-      "key": "first_name_input",
-      "name": "first_name_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "last_name_prompt"
-      },
-      "text": {
-        "key": "first_name",
-        "type": "STRING"
-      },
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "first_name_input"
-    },
-    "first_name_prompt": {
-      "key": "first_name_prompt",
-      "name": "first_name_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "first_name_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "पहला नाम"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "first_name_prompt"
-    },
-    "last_name_input": {
-      "key": "last_name_input",
-      "name": "last_name_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "birthplace_state_prompt"
-      },
-      "text": {
-        "key": "last_name",
-        "type": "STRING"
-      },
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "last_name_input"
-    },
-    "last_name_prompt": {
-      "key": "last_name_prompt",
-      "name": "last_name_prompt",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "last_name_input"
-      },
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "उपनाम"
-      },
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "description": "last_name_prompt"
-    },
     "wake_at_input": {
       "key": "wake_at_input",
       "name": "wake_at_input",
@@ -97,8 +31,27 @@
         "type": "REF",
         "value": "daily_activity_prompt"
       },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER"
+      },
       "ctype": "USER",
       "dtype": "FILL_BLANK",
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "max": 23,
+            "min": 0
+          },
+          {
+            "max": 59,
+            "min": 0
+          }
+        ]
+      },
       "output": {
         "key": "wake_up_at",
         "type": "STRING"
@@ -107,25 +60,6 @@
         "src": "CONSTANT",
         "type": "STRING",
         "value": "__1__ घंटे: __2__ मिनट"
-      },
-      "type": {
-        "src": "CONSTANT",
-        "value": "INTEGER",
-        "type": "ENUM"
-      },
-      "minMax": {
-        "src": "CONSTANT",
-        "type": "ARRAY",
-        "value": [
-          {
-            "min": 0,
-            "max": 23
-          },
-          {
-            "min": 0,
-            "max": 59
-          }
-        ]
       },
       "description": "wake_at_input"
     },
@@ -137,8 +71,27 @@
         "type": "REF",
         "value": "wake_at_prompt"
       },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER"
+      },
       "ctype": "USER",
       "dtype": "FILL_BLANK",
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "max": 23,
+            "min": 0
+          },
+          {
+            "max": 59,
+            "min": 0
+          }
+        ]
+      },
       "output": {
         "key": "sleep_at",
         "type": "STRING"
@@ -147,25 +100,6 @@
         "src": "CONSTANT",
         "type": "STRING",
         "value": "__1__ घंटे: __2__ मिनट"
-      },
-      "type": {
-        "src": "CONSTANT",
-        "value": "INTEGER",
-        "type": "ENUM"
-      },
-      "minMax": {
-        "src": "CONSTANT",
-        "type": "ARRAY",
-        "value": [
-          {
-            "min": 0,
-            "max": 23
-          },
-          {
-            "min": 0,
-            "max": 59
-          }
-        ]
       },
       "description": "sleep_at_input"
     },
@@ -220,6 +154,22 @@
       },
       "description": "wife_job_input"
     },
+    "last_name_input": {
+      "key": "last_name_input",
+      "name": "last_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "birthplace_state_prompt"
+      },
+      "text": {
+        "key": "last_name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "last_name_input"
+    },
     "sleep_at_prompt": {
       "key": "sleep_at_prompt",
       "name": "sleep_at_prompt",
@@ -254,6 +204,39 @@
       "dtype": "TEXT",
       "description": "wife_job_prompt"
     },
+    "first_name_input": {
+      "key": "first_name_input",
+      "name": "first_name_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_prompt"
+      },
+      "text": {
+        "key": "first_name",
+        "type": "STRING"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "first_name_input"
+    },
+    "last_name_prompt": {
+      "key": "last_name_prompt",
+      "name": "last_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "last_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "उपनाम"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "last_name_prompt"
+    },
     "son_number_input": {
       "key": "son_number_input",
       "max": {
@@ -285,6 +268,23 @@
       "ctype": "USER",
       "dtype": "TEXT",
       "description": "son_number_input"
+    },
+    "first_name_prompt": {
+      "key": "first_name_prompt",
+      "name": "first_name_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "first_name_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "पहला नाम"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "first_name_prompt"
     },
     "son_number_prompt": {
       "key": "son_number_prompt",
@@ -371,8 +371,27 @@
         "type": "REF",
         "value": "next_activity_prompt"
       },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER"
+      },
       "ctype": "USER",
       "dtype": "FILL_BLANK",
+      "minMax": {
+        "src": "CONSTANT",
+        "type": "ARRAY",
+        "value": [
+          {
+            "max": 23,
+            "min": 0
+          },
+          {
+            "max": 59,
+            "min": 0
+          }
+        ]
+      },
       "output": {
         "key": "activity_time",
         "type": "STRING"
@@ -381,25 +400,6 @@
         "src": "CONSTANT",
         "type": "STRING",
         "value": "__1__ घंटे: __2__ मिनट"
-      },
-      "type": {
-        "src": "CONSTANT",
-        "value": "INTEGER",
-        "type": "ENUM"
-      },
-      "minMax": {
-        "src": "CONSTANT",
-        "type": "ARRAY",
-        "value": [
-          {
-            "min": 0,
-            "max": 23
-          },
-          {
-            "min": 0,
-            "max": 59
-          }
-        ]
       }
     },
     "daily_activity_loop": {
@@ -675,126 +675,6 @@
       "ctype": "USER",
       "dtype": "TEXT",
       "description": "children_number_input"
-    },
-    "youngest_child_age_prompt": {
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "आपके सबसे छोटे बच्चे की उम्र क्या है?"
-      },
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "youngest_child_age_input"
-      }
-    },
-    "youngest_child_age_input": {
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "youngest_child_age_input",
-      "key": "youngest_child_age_input",
-      "name": "youngest_child_age_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "children_number_under_age_two_prompt"
-      },
-      "text": {
-        "key": "youngest_child_age",
-        "type": "STRING"
-      },
-      "type": {
-        "src": "CONSTANT",
-        "type": "ENUM",
-        "value": "NUMBER",
-        "options": {}
-      }
-    },
-    "children_number_under_age_two_prompt": {
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "इस घर में दो साल से कम उम्र के कितने बच्चे रहते हैं?"
-      },
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "children_number_under_age_two_input"
-      }
-    },
-    "children_number_under_age_two_input": {
-      "ctype": "USER",
-      "dtype": "TEXT",
-      "description": "children_number_under_age_two_input",
-      "key": "children_number_under_age_two_input",
-      "name": "children_number_under_age_two_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "youngest_child_gender_prompt"
-      },
-      "text": {
-        "key": "children_number_under_age_two",
-        "type": "STRING"
-      },
-      "type": {
-        "src": "CONSTANT",
-        "type": "ENUM",
-        "value": "NUMBER",
-        "options": {}
-      }
-    },
-    "youngest_child_gender_prompt": {
-      "ctype": "PLATFORM",
-      "dtype": "TEXT",
-      "text": {
-        "src": "CONSTANT",
-        "type": "STRING",
-        "value": "आपका सबसे छोटा बच्चा लड़का है या लड़की?"
-      },
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "youngest_child_gender_input"
-      }
-    },
-    "youngest_child_gender_input": {
-      "key": "youngest_child_gender_input",
-      "max": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "min": {
-        "src": "CONSTANT",
-        "type": "INT",
-        "value": 1
-      },
-      "name": "youngest_child_gender_input",
-      "next": {
-        "src": "CONSTANT",
-        "type": "REF",
-        "value": "time_use_prompt_1"
-      },
-      "ctype": "USER",
-      "dtype": "MCQ",
-      "options": {
-        "src": "CONSTANT",
-        "type": "STRING_ARRAY",
-        "value": [
-          "लड़का",
-          "लड़की"
-        ]
-      },
-      "selected": {
-        "key": "youngest_child_gender",
-        "type": "STRING_ARRAY"
-      },
-      "description": "youngest_child_gender_input"
     },
     "daily_activity_prompt": {
       "next": {
@@ -1082,6 +962,28 @@
       },
       "function_id": "FETCH_DISTRICT_NAMES"
     },
+    "youngest_child_age_input": {
+      "key": "youngest_child_age_input",
+      "name": "youngest_child_age_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_under_age_two_prompt"
+      },
+      "text": {
+        "key": "youngest_child_age",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "youngest_child_age_input"
+    },
     "birthplace_district_input": {
       "key": "birthplace_district_input",
       "name": "birthplace_district_input",
@@ -1103,6 +1005,20 @@
       },
       "description": "birthplace_district_input"
     },
+    "youngest_child_age_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_age_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपके सबसे छोटे बच्चे की उम्र क्या है?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
     "birthplace_district_prompt": {
       "key": "birthplace_district_prompt",
       "name": "birthplace_district_prompt",
@@ -1119,6 +1035,90 @@
       "ctype": "PLATFORM",
       "dtype": "TEXT",
       "description": "birthplace_district_prompt"
+    },
+    "youngest_child_gender_input": {
+      "key": "youngest_child_gender_input",
+      "max": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "min": {
+        "src": "CONSTANT",
+        "type": "INT",
+        "value": 1
+      },
+      "name": "youngest_child_gender_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "time_use_prompt_1"
+      },
+      "ctype": "USER",
+      "dtype": "MCQ",
+      "options": {
+        "src": "CONSTANT",
+        "type": "STRING_ARRAY",
+        "value": [
+          "लड़का",
+          "लड़की"
+        ]
+      },
+      "selected": {
+        "key": "youngest_child_gender",
+        "type": "STRING_ARRAY"
+      },
+      "description": "youngest_child_gender_input"
+    },
+    "youngest_child_gender_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_gender_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "आपका सबसे छोटा बच्चा लड़का है या लड़की?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
+    },
+    "children_number_under_age_two_input": {
+      "key": "children_number_under_age_two_input",
+      "name": "children_number_under_age_two_input",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "youngest_child_gender_prompt"
+      },
+      "text": {
+        "key": "children_number_under_age_two",
+        "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "NUMBER",
+        "options": {}
+      },
+      "ctype": "USER",
+      "dtype": "TEXT",
+      "description": "children_number_under_age_two_input"
+    },
+    "children_number_under_age_two_prompt": {
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "children_number_under_age_two_input"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "इस घर में दो साल से कम उम्र के कितने बच्चे रहते हैं?"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT"
     }
   },
   "tags": [
@@ -1127,17 +1127,47 @@
     "respondent-background",
     "hindi"
   ],
+  "files": {},
   "referral": {},
+  "sequence": [
+    "2363",
+    "2352",
+    "2353",
+    "2354"
+  ],
   "taskType": "MANUAL",
   "allowEdit": true,
+  "surveySpec": {
+    "end": {
+      "key": "end",
+      "name": "End Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": null
+      },
+      "ctype": "END",
+      "description": "Last Component of the task specification"
+    },
+    "start": {
+      "key": "start",
+      "name": "Start Component",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "START",
+      "description": "First Component of the task specification"
+    }
+  },
   "description": "Baseline Survey: Respondent background",
-  "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
   "display_name": "मूल जानकारी",
   "allowSkipping": false,
   "requireConfig": false,
   "enableReferral": false,
   "enableTestTask": false,
-  "surveyAvailable": false,
+  "surveyAvailable": true,
   "isValidationTask": false,
   "outputDatasetName": "[OUT] Baseline Survey: Respondent background",
   "tutorialAvailable": false,
@@ -1145,7 +1175,6 @@
   "requiresValidation": false,
   "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
-  "createNewOutputDataset": true,
   "baseCreditsPerMicrotask": 0,
   "bonusCreditsPerMicrotask": 0,
   "requireRepeatingMicrotask": false,
