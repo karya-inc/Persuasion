@@ -275,15 +275,26 @@
     }
   },
   "tags": [
-    "persuasion-v2",
+    "persuasion",
     "baseline-survey",
     "other-beliefs",
     "hindi"
   ],
-  "files": {},
+  "files": {
+    "survey_spec__next_task_download_prompt_image": "T-2354.K-survey_spec__next_task_download_prompt_image.R-sad5ij1rslk3p6in.png"
+  },
   "referral": {},
+  "sequence": [
+    "2363",
+    "2352",
+    "2353",
+    "2354"
+  ],
   "taskType": "MANUAL",
   "allowEdit": true,
+  "localizeTo": [
+    "HI"
+  ],
   "surveySpec": {
     "end": {
       "key": "end",
@@ -330,7 +341,7 @@
       "next": {
         "src": "CONSTANT",
         "type": "REF",
-        "value": "end"
+        "value": "next_task_download_prompt"
       },
       "text": {
         "src": "CONSTANT",
@@ -339,12 +350,84 @@
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
-      "description": "next_task_prompt"
+      "description": "next_task_prompt",
+      "messageType": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "DEFAULT",
+        "options": {
+          "DEFAULT": "DEFAULT",
+          "EXAMPLE": "EXAMPLE",
+          "TUTORIAL": "TUTORIAL",
+          "REFERENCE": "REFERENCE",
+          "INSTRUCTION": "INSTRUCTION"
+        }
+      }
+    },
+    "next_task_download_prompt": {
+      "key": "next_task_download_prompt",
+      "name": "next_task_download_prompt",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "next_task_download_prompt_image"
+      },
+      "text": {
+        "src": "CONSTANT",
+        "type": "STRING",
+        "value": "अगले कार्य को प्राप्त करने के लिए कृपया डैशबोर्ड पर वापस जाएँ और \"नए कार्य डाउनलोड करें\" पर क्लिक करें।"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "TEXT",
+      "description": "next_task_download_prompt",
+      "messageType": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "DEFAULT",
+        "options": {
+          "DEFAULT": "DEFAULT",
+          "EXAMPLE": "EXAMPLE",
+          "TUTORIAL": "TUTORIAL",
+          "REFERENCE": "REFERENCE",
+          "INSTRUCTION": "INSTRUCTION"
+        }
+      }
+    },
+    "next_task_download_prompt_image": {
+      "key": "next_task_download_prompt_image",
+      "name": "next_task_download_prompt_image",
+      "next": {
+        "src": "CONSTANT",
+        "type": "REF",
+        "value": "end"
+      },
+      "ctype": "PLATFORM",
+      "dtype": "IMAGE",
+      "image": {
+        "src": "CONSTANT",
+        "type": "FILE",
+        "value": "T-2354.K-survey_spec__next_task_download_prompt_image.R-sad5ij1rslk3p6in.png"
+      },
+      "description": "next_task_download_prompt_image",
+      "messageType": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "DEFAULT",
+        "options": {
+          "DEFAULT": "DEFAULT",
+          "EXAMPLE": "EXAMPLE",
+          "TUTORIAL": "TUTORIAL",
+          "REFERENCE": "REFERENCE",
+          "INSTRUCTION": "INSTRUCTION"
+        }
+      }
     }
   },
   "description": "Baseline Survey: Other beliefs",
-  "instruction": "कृपया अग्रांकित प्रश्नों के उत्तर दें",
-  "display_name": "अन्य मान्यताएँ",
+  "display_name": {
+    "HI": "अन्य मान्यताएँ",
+    "DEFAULT": "अन्य मान्यताएँ"
+  },
   "allowSkipping": false,
   "requireConfig": false,
   "enableReferral": false,
@@ -357,7 +440,6 @@
   "requiresValidation": false,
   "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
-  "createNewOutputDataset": true,
   "baseCreditsPerMicrotask": 0,
   "bonusCreditsPerMicrotask": 0,
   "requireRepeatingMicrotask": false,
