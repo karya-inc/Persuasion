@@ -1,5 +1,5 @@
 {
-  "name": "Image Annotation : Latent Treatment",
+  "name": "Image Labelling : Control",
   "spec": {
     "end": {
       "key": "end",
@@ -34,6 +34,11 @@
       "text": {
         "key": "label",
         "type": "STRING"
+      },
+      "type": {
+        "src": "CONSTANT",
+        "type": "ENUM",
+        "value": "INTEGER"
       },
       "ctype": "USER",
       "dtype": "TEXT",
@@ -100,7 +105,8 @@
   "tags": [
     "persuasion-v2",
     "image-annotation",
-    "latent-treatment"
+    "control",
+    "__main-task__"
   ],
   "files": {},
   "referral": {},
@@ -147,9 +153,14 @@
       "description": "welcome_prompt"
     }
   },
-  "description": "Image Annotation",
-  "instruction": "दी गई छवि में वस्तुओं को चिह्नित करें",
-  "display_name": "इमेज लेबलिंग",
+  "localizeTo": [
+    "HI"
+  ],
+  "description": "Image Labelling : Control",
+  "display_name": {
+    "HI": "इमेज लेबलिंग",
+    "DEFAULT": "इमेज लेबलिंग"
+  },
   "tutorialSpec": {
     "end": {
       "key": "end",
@@ -184,7 +195,7 @@
       "text": {
         "src": "CONSTANT",
         "type": "STRING",
-        "value": "कृपया नीचे दिए गए काम पूरे करें।"
+        "value": "कृपया नीचे दिए गए काम पूरे करें। "
       },
       "ctype": "PLATFORM",
       "dtype": "TEXT",
@@ -197,14 +208,13 @@
   "enableTestTask": false,
   "surveyAvailable": false,
   "isValidationTask": false,
-  "outputDatasetName": "[OUT] Image Annotation : Latent Treatment",
+  "outputDatasetName": "[OUT] Image Annotation : Control",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
   "createTaskAssignment": false,
   "outputGenGranularity": "ASSIGNMENT",
-  "createNewOutputDataset": true,
-  "baseCreditsPerMicrotask": 0,
+  "baseCreditsPerMicrotask": 3600,
   "bonusCreditsPerMicrotask": 0,
   "requireRepeatingMicrotask": false,
   "subscribeToReferenceDataset": false

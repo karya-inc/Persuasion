@@ -1,5 +1,5 @@
 {
-  "name": "Audio Transcription : Control",
+  "name": "Audio Transcription : Latent",
   "spec": {
     "end": {
       "key": "end",
@@ -60,7 +60,7 @@
   "tags": [
     "persuasion-v2",
     "audio-transcription",
-    "control"
+    "latent-treatment"
   ],
   "files": {},
   "referral": {},
@@ -243,7 +243,7 @@
   "enableTestTask": false,
   "surveyAvailable": true,
   "isValidationTask": false,
-  "outputDatasetName": "[OUT] Audio Transcription : Control ",
+  "outputDatasetName": "[OUT] Audio Transcription : Latent Treatment",
   "tutorialAvailable": true,
   "customIntroEnabled": true,
   "requiresValidation": false,
