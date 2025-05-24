@@ -214,7 +214,7 @@
         "itype": "STRING",
         "options": {
           "default": "job_in_neighbourhood_wage_prompt",
-          "g) अन्य:": "other_part_time_wage_input"
+          "g) अन्य रकम:": "other_part_time_wage_input"
         }
       },
       "ctype": "USER",
@@ -228,7 +228,7 @@
           "c) करीब ₹10,000",
           "d) ₹10,000 से ₹20,000 के बीच",
           "f) इसमें मेरी दिलचस्पी/इंटरेस्ट नहीं है",
-          "g) अन्य:"
+          "g) अन्य रकम:"
         ]
       },
       "multiple": {
@@ -472,17 +472,17 @@
         "type": "REF",
         "value": "job_in_neighbourhood_wage_prompt"
       },
-      "ctype": "USER",
-      "dtype": "FILL_BLANK",
-      "output": {
+      "text": {
         "key": "other_part_time_wage",
         "type": "STRING"
       },
-      "template": {
+      "type": {
         "src": "CONSTANT",
-        "type": "STRING",
-        "value": "__1__"
-      }
+        "type": "ENUM",
+        "value": "INTEGER"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT"
     },
     "social_media_impact_prompt": {
       "key": "social_media_impact_prompt",
@@ -593,7 +593,7 @@
         "itype": "STRING",
         "options": {
           "default": "end",
-          "g) अन्य:": "other_job_in_neighbourhood_wage_input"
+          "g) अन्य रकम:": "other_job_in_neighbourhood_wage_input"
         }
       },
       "ctype": "USER",
@@ -607,7 +607,7 @@
           "c) करीब ₹15,000",
           "d) ₹20,000 से ₹30,000 के बीच",
           "e) मैं नहीं चाहता कि वो ऐसा कोई काम करें",
-          "g) अन्य:"
+          "g) अन्य रकम:"
         ]
       },
       "multiple": {
@@ -698,17 +698,17 @@
         "type": "REF",
         "value": "end"
       },
-      "ctype": "USER",
-      "dtype": "FILL_BLANK",
-      "output": {
+      "text": {
         "key": "other_job_in_neighbourhood_wage",
         "type": "STRING"
       },
-      "template": {
+      "type": {
         "src": "CONSTANT",
-        "type": "STRING",
-        "value": "__1__"
-      }
+        "type": "ENUM",
+        "value": "INTEGER"
+      },
+      "ctype": "USER",
+      "dtype": "TEXT"
     }
   },
   "tags": [
