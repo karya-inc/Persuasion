@@ -38,7 +38,12 @@
       "type": {
         "src": "CONSTANT",
         "type": "ENUM",
-        "value": "INTEGER"
+        "value": "INTEGER",
+        "options": {
+          "TEXT": "",
+          "INTEGER": "",
+          "FLOAT": ""
+        }
       },
       "ctype": "USER",
       "dtype": "TEXT",
