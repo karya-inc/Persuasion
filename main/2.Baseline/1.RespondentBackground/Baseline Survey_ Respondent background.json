@@ -1122,7 +1122,7 @@
     }
   },
   "tags": [
-    "persuasion",
+    "persuasion-v2",
     "baseline-survey",
     "respondent-background",
     "hindi"
@@ -1132,10 +1132,10 @@
   },
   "referral": {},
   "sequence": [
-    "2363",
-    "2352",
-    "2353",
-    "2354"
+    "15971",
+    "15972",
+    "15973",
+    "15974"
   ],
   "taskType": "MANUAL",
   "allowEdit": true,
